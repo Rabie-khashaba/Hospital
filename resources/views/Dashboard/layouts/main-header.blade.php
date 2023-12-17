@@ -263,12 +263,29 @@
 									<a class="dropdown-item" href=""><i class="bx bxs-inbox"></i>Inbox</a>
 									<a class="dropdown-item" href=""><i class="bx bx-envelope"></i>Messages</a>
 									<a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
-                                            class="bx bx-log-out"></i>Sign Out</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+
+                                    @if(auth('admin')->check())
+                                        <form method="POST" action="{{ route('logout.admin') }}">
+                                            @else
+                                                <form method="POST" action="{{ route('logout.user') }}">
+{{--                                                    @elseif(auth('doctor')->check())--}}
+{{--                                                        <form method="POST" action="{{ route('logout.doctor') }}">--}}
+{{--                                                            @elseif(auth('ray_employee')->check())--}}
+{{--                                                                <form method="POST" action="{{ route('logout.ray_employee') }}">--}}
+{{--                                                                    @elseif(auth('laboratorie_employee')->check())--}}
+{{--                                                                        <form method="POST"--}}
+{{--                                                                              action="{{ route('logout.laboratorie_employee') }}">--}}
+{{--                                                                            @else--}}
+{{--                                                                                <form method="POST"--}}
+{{--                                                                                      action="{{ route('logout.patient') }}">--}}
+                                                                                    @endif
+                                                                                    @csrf
+                                                                                    <a class="dropdown-item" href="#"
+                                                                                       onclick="event.preventDefault();
+                                        this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+
+                                                </form>
+
 								</div>
 							</div>
 							<div class="dropdown main-header-message right-toggle">

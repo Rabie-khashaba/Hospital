@@ -32,4 +32,9 @@ Route::get('/dashboard/user', function (){
 })->middleware(['auth'])->name('dashboard.user');
 
 
+Route::get('/dashboard/admin', function (){
+    return view('Dashboard.admin.dashboard');
+})->middleware(['auth:admin'])->name('dashboard.admin');
+
+
 require __DIR__.'/auth.php';
