@@ -15,13 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class , 'index'] )->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/Dashboard_Admin', [DashboardController::class , 'index'] )->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+Route::get('/dashboard/user', function (){
+    return view('Dashboard.user.dashboard');
+})->middleware(['auth'])->name('dashboard.user');
 
 
 require __DIR__.'/auth.php';
