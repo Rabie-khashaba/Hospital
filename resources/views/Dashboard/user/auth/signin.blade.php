@@ -1,4 +1,7 @@
 @extends('Dashboard.layouts.master2')
+@section("title")
+    Hospital Management system
+@endsection
 @section('css')
     <style>
         .panel {display: none;}

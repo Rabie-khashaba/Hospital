@@ -1,4 +1,7 @@
 @extends('Dashboard.layouts.master')
+@section("title")
+    Hospital Management system
+@endsection
 @section('css')
     <!--  Owl-carousel css-->
     <link href="{{URL::asset('dashboard/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet" />
