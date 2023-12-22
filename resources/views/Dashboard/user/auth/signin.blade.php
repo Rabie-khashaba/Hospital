@@ -2,6 +2,20 @@
 @section("title")
     Hospital Management system
 @endsection
+
+@section('page-header')
+{{--    @if (session()->has('error-email'))--}}
+{{--        <script>--}}
+{{--            window.onload = function() {--}}
+{{--                notif({--}}
+{{--                    msg: "Email not match",--}}
+{{--                    type: "error"--}}
+{{--                })--}}
+{{--            }--}}
+{{--        </script>--}}
+{{--    @endif--}}
+@endsection
+
 @section('css')
     <style>
         .panel {display: none;}
@@ -9,8 +23,12 @@
 
     <!-- Sidemenu-respoansive-tabs css -->
     <link href="{{URL::asset('Dashboard/plugins/sidemenu-responsive-tabs/css/sidemenu-responsive-tabs.css')}}" rel="stylesheet">
+    <!--Internal   Notify -->
+    <link href="{{URL::asset('dashboard/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
 @endsection
+
 @section('content')
+
     <div class="container-fluid">
         <div class="row no-gutter">
             <!-- The image half -->
@@ -43,22 +61,23 @@
                                                 </div>
                                             @endif
 
+
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">{{trans('Dashboard/login_trans.Select_Enter')}}</label>
                                                 <select class="form-control" id="sectionChooser">
                                                     <option value="" selected disabled>{{trans('Dashboard/login_trans.Choose_list')}}</option>
                                                     <option value="user">{{trans('Dashboard/login_trans.user')}}</option>
                                                     <option value="admin">{{trans('Dashboard/login_trans.admin')}}</option>
-                                                    <option value="doctor">الدخول دكتور</option>
-                                                    <option value="ray_employee">موظف اشعة</option>
-                                                    <option value="laboratorie_employee">موظف مختبر</option>
+                                                    <option value="doctor">{{trans('Dashboard/login_trans.doctor')}}</option>
+                                                    <option value="ray_employee">{{trans('Dashboard/login_trans.ray_employee')}}</option>
+                                                    <option value="laboratorie_employee">{{trans('Dashboard/login_trans.laboratorie_employee')}}</option>
                                                 </select>
                                             </div>
 
 
                                             {{--form user--}}
                                             <div class="panel" id="user">
-                                                <h2>الدخول كمريض</h2>
+                                                <h2>{{trans('Dashboard/login_trans.user')}}</h2>
                                                 <form method="POST" action="{{ route('login.user')}}">
                                                     @csrf
                                                     <div class="form-group">
@@ -66,7 +85,8 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
+                                                    </div><button type="submit" class="btn btn-main-primary btn-block">
+                                                    {{trans('Dashboard/login_trans.SignIn')}}</button>
                                                     <div class="row row-xs">
                                                         <div class="col-sm-6">
                                                             <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
@@ -84,7 +104,7 @@
 
 {{--                                            form admin--}}
                                             <div class="panel" id="admin">
-                                                <h2>الدخول ادمن</h2>
+                                                <h2>{{trans('Dashboard/login_trans.admin')}}</h2>
                                                 <form method="POST" action="{{ route('login.admin') }}">
                                                     @csrf
                                                     <div class="form-group">
@@ -92,7 +112,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
+                                                    </div><button type="submit" class="btn btn-main-primary btn-block">{{trans('Dashboard/login_trans.SignIn')}}</button>
                                                     <div class="row row-xs">
                                                         <div class="col-sm-6">
                                                             <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
@@ -110,7 +130,7 @@
 
                                             {{--form Doctor--}}
 {{--                                            <div class="panel" id="doctor">--}}
-{{--                                                <h2>الدخول دكتور</h2>--}}
+{{--                                                <h2>{{trans('Dashboard/login_trans.doctor')}}</h2>--}}
 {{--                                                <form method="POST" action="{{ route('login.doctor') }}">--}}
 {{--                                                    @csrf--}}
 {{--                                                    <div class="form-group">--}}
@@ -118,7 +138,7 @@
 {{--                                                    </div>--}}
 {{--                                                    <div class="form-group">--}}
 {{--                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >--}}
-{{--                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>--}}
+{{--                                                    </div><button type="submit" class="btn btn-main-primary btn-block">{{trans('Dashboard/login_trans.SignIn')}}</button>--}}
 {{--                                                    <div class="row row-xs">--}}
 {{--                                                        <div class="col-sm-6">--}}
 {{--                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>--}}
@@ -136,7 +156,7 @@
 
                                             {{--form RayEmployee--}}
 {{--                                            <div class="panel" id="ray_employee">--}}
-{{--                                                <h2>الدخول موظف اشعة</h2>--}}
+{{--                                                <h2>{{trans('Dashboard/login_trans.ray_employee')}}</h2>--}}
 {{--                                                <form method="POST" action="{{ route('login.ray_employee') }}">--}}
 {{--                                                    @csrf--}}
 {{--                                                    <div class="form-group">--}}
@@ -144,7 +164,7 @@
 {{--                                                    </div>--}}
 {{--                                                    <div class="form-group">--}}
 {{--                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >--}}
-{{--                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>--}}
+{{--                                                    </div><button type="submit" class="btn btn-main-primary btn-block">{{trans('Dashboard/login_trans.SignIn')}}</button>--}}
 {{--                                                    <div class="row row-xs">--}}
 {{--                                                        <div class="col-sm-6">--}}
 {{--                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>--}}
@@ -162,7 +182,7 @@
 
                                             {{--form laboratorie_employee--}}
 {{--                                            <div class="panel" id="laboratorie_employee">--}}
-{{--                                                <h2>الدخول موظف مختبر</h2>--}}
+{{--                                                <h2>{{trans('Dashboard/login_trans.laboratorie_employee')}}</h2>--}}
 {{--                                                <form method="POST" action="{{ route('login.laboratorie_employee') }}">--}}
 {{--                                                    @csrf--}}
 {{--                                                    <div class="form-group">--}}
@@ -170,7 +190,7 @@
 {{--                                                    </div>--}}
 {{--                                                    <div class="form-group">--}}
 {{--                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >--}}
-{{--                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>--}}
+{{--                                                    </div><button type="submit" class="btn btn-main-primary btn-block">{{trans('Dashboard/login_trans.SignIn')}}</button>--}}
 {{--                                                    <div class="row row-xs">--}}
 {{--                                                        <div class="col-sm-6">--}}
 {{--                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>--}}
@@ -208,4 +228,8 @@
             });
         });
     </script>
+
+    <!--Internal  Notify js -->
+    <script src="{{URL::asset('dashboard/plugins/notify/js/notifIt.js')}}"></script>
+    <script src="{{URL::asset('dashboard/plugins/notify/js/notifit-custom.js')}}"></script>
 @endsection

@@ -273,8 +273,7 @@
                                                                                     @csrf
                                                                                     <a class="dropdown-item" href="#"
                                                                                        onclick="event.preventDefault();
-                                        this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
-
+                                        this.closest('form').submit();"><i class="bx bx-log-out"></i>{{trans('Dashboard/login_trans.Signout')}}</a>
                                                 </form>
 
 								</div>

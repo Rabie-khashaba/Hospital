@@ -16,6 +16,8 @@
 			<img src="{{URL::asset('dashboard/img/loader.svg')}}" class="loader-img" alt="Loader">
 		</div>
 		<!-- /Loader -->
+
+        @yield('page-header')
 		@yield('content')
 		@include('Dashboard.layouts.footer-scripts')
 	</body>

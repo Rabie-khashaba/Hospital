@@ -19,6 +19,10 @@
     <!---Skinmodes css-->
     <link href="{{URL::asset('dashboard/css-rtl/skin-modes.css')}}" rel="stylesheet">
 
+    {{--toastr--}}
+    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+
 @else
     <link rel="icon" href="{{URL::asset('dashboard/img/brand/favicon.png')}}" type="image/x-icon"/>
     <!-- Icons css -->
@@ -37,4 +41,8 @@
     <link href="{{URL::asset('dashboard/css/style-dark.css')}}" rel="stylesheet">
     <!---Skinmodes css-->
     <link href="{{URL::asset('dashboard/css/skin-modes.css')}}" rel="stylesheet" />
+
+    {{--toastr--}}
+    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
 @endif

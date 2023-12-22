@@ -37,14 +37,14 @@ function not5() {
 function not51() {
 	notif({
 		msg: "Default <b>Bottom</b> Notification",
-		position: "bottom",
+		position: "right",
 		bottom:'10'
 	});
 }
 function not6() {
 	notif({
-		type: "primary",
-		msg: "Welcome to VALEX",
+		type: "error",
+		msg: "Email Not Match",
 		position: "right",
 		bottom:'10'
 	});

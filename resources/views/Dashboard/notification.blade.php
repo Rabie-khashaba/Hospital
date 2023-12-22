@@ -1,11 +1,11 @@
-@extends('layouts.master')
+@extends('dashboard.layouts.master')
 @section('css')
 <!--Internal  Font Awesome -->
-<link href="{{URL::asset('assets/plugins/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('dashboard/plugins/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
 <!--Internal   Notify -->
-<link href="{{URL::asset('assets/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
+<link href="{{URL::asset('dashboard/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
 <!--Internal  treeview -->
-<link href="{{URL::asset('assets/plugins/treeview/treeview.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{URL::asset('dashboard/plugins/treeview/treeview.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
@@ -133,8 +133,8 @@
 @endsection
 @section('js')
 <!-- Internal Treeview js -->
-<script src="{{URL::asset('assets/plugins/treeview/treeview.js')}}"></script>
+<script src="{{URL::asset('dashboard/plugins/treeview/treeview.js')}}"></script>
 <!--Internal  Notify js -->
-<script src="{{URL::asset('assets/plugins/notify/js/notifIt.js')}}"></script>
-<script src="{{URL::asset('assets/plugins/notify/js/notifit-custom.js')}}"></script>
+<script src="{{URL::asset('dashboard/plugins/notify/js/notifIt.js')}}"></script>
+<script src="{{URL::asset('dashboard/plugins/notify/js/notifit-custom.js')}}"></script>
 @endsection

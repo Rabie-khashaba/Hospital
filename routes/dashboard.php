@@ -16,9 +16,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/Dashboard_Admin', [DashboardController::class , 'index'] )->middleware(['auth', 'verified'])->name('dashboard');
-
-
+Route::get('/Dashboard_Admin', [DashboardController::class , 'index'] );
 
 
 

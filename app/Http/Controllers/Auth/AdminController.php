@@ -26,9 +26,15 @@ class AdminController extends Controller
 
     public function store(AdminLoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-        $request->session()->regenerate();
-        return redirect()->intended(RouteServiceProvider::ADMIN);
+        if($request->authenticate()){
+            $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::ADMIN);
+        }
+
+//        session()->flash('error-email');
+//        return redirect('/login');
+
+        return redirect()->back()->withErrors(['name' => (trans('Dashboard/auth.failed'))]);
     }
 
 
