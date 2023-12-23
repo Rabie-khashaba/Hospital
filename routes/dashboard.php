@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -26,15 +27,24 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ], function () {
 
+    // dashboard user-----------
     Route::get('/dashboard/user', function (){
         return view('Dashboard.user.dashboard');
     })->middleware(['auth'])->name('dashboard.user');
 
-
+    // dashboard Admin----------
     Route::get('/dashboard/admin', function (){
         return view('Dashboard.admin.dashboard');
     })->middleware(['auth:admin'])->name('dashboard.admin');
 
+    // -------------------------------------------------------------
+    Route::middleware(['auth:admin'])->group(function (){
+
+        //section---------
+        Route::resource('sections', SectionController::class);
+        Route::resource('Doctors', SectionController::class);
+
+    });
 
     require __DIR__.'/auth.php';
 

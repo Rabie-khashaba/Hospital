@@ -7,6 +7,4 @@ return [
    'sections'=>'الاقسام',
     'view_all'=>'عرض الكل',
 
-
-
 ];
