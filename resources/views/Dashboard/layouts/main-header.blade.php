@@ -257,8 +257,8 @@
 
                                     @if(auth('admin')->check())
                                         <form method="POST" action="{{ route('logout.admin') }}">
-                                            @else
-                                                <form method="POST" action="{{ route('logout.user') }}">
+                                            @elseif(auth('doctor')->check())
+                                                <form method="POST" action="{{ route('logout.doctor') }}">
 {{--                                                    @elseif(auth('doctor')->check())--}}
 {{--                                                        <form method="POST" action="{{ route('logout.doctor') }}">--}}
 {{--                                                            @elseif(auth('ray_employee')->check())--}}
@@ -266,9 +266,9 @@
 {{--                                                                    @elseif(auth('laboratorie_employee')->check())--}}
 {{--                                                                        <form method="POST"--}}
 {{--                                                                              action="{{ route('logout.laboratorie_employee') }}">--}}
-{{--                                                                            @else--}}
-{{--                                                                                <form method="POST"--}}
-{{--                                                                                      action="{{ route('logout.patient') }}">--}}
+                                                                            @else
+                                                                                <form method="POST"
+                                                                                      action="{{ route('logout.user') }}">
                                                                                     @endif
                                                                                     @csrf
                                                                                     <a class="dropdown-item" href="#"

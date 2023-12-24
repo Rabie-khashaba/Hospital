@@ -131,7 +131,7 @@
                                             {{--form Doctor--}}
                                             <div class="panel" id="doctor">
                                                 <h2>{{trans('Dashboard/login_trans.doctor')}}</h2>
-                                                <form method="POST" action="">
+                                                <form method="POST" action="{{ route('login.doctor') }}">
                                                     @csrf
                                                     <div class="form-group">
                                                         <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>

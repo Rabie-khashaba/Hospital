@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -37,12 +38,17 @@ Route::group(
         return view('Dashboard.admin.dashboard');
     })->middleware(['auth:admin'])->name('dashboard.admin');
 
+    // dashboard Doctor----------
+    Route::get('/dashboard/doctor', function (){
+        return view('Dashboard.doctor.dashboard');
+    })->middleware(['auth:doctor'])->name('dashboard.doctor');
+
     // -------------------------------------------------------------
     Route::middleware(['auth:admin'])->group(function (){
 
         //section---------
         Route::resource('sections', SectionController::class);
-        Route::resource('Doctors', SectionController::class);
+        Route::resource('Doctors',   DoctorController::class);
 
     });
 
