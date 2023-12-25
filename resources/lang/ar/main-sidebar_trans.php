@@ -4,6 +4,7 @@ return array (
   'Ambulance_calls' => 'مكالمات الاسعاف',
   'Insurance' => 'شركات التامين',
   'Main' => 'برنامج ادارة المستشفيات',
+  'Rabie' => 'ربيع',
   'Services' => 'الخدمات',
   'Single_service' => 'خدمة مفردة',
   'ambulance' => 'الاسعاف',

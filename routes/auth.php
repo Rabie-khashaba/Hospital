@@ -70,7 +70,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
+//admin
 Route::middleware('auth:admin')->group(function () {
     //logout
     Route::post('logout/admin', [AdminController::class, 'destroy'])->name('logout.admin');
@@ -78,6 +78,7 @@ Route::middleware('auth:admin')->group(function () {
 
 });
 
+// doctor
 Route::middleware('auth:doctor')->group(function () {
     //logout
     Route::post('logout/doctor', [AdminController::class, 'destroy'])->name('logout.doctor');

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('section_translations', function (Blueprint $table) {
             $table->id();
             $table->string('locale')->index();
-            //$table->longText('description')->nullable();
+            $table->longText('description')->nullable();
 
             // Foreign key to the main model
             $table->unique(['section_id', 'locale']);

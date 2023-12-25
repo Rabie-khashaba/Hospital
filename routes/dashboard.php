@@ -43,6 +43,8 @@ Route::group(
         return view('Dashboard.doctor.dashboard');
     })->middleware(['auth:doctor'])->name('dashboard.doctor');
 
+
+
     // -------------------------------------------------------------
     Route::middleware(['auth:admin'])->group(function (){
 
@@ -51,6 +53,8 @@ Route::group(
         Route::resource('Doctors',   DoctorController::class);
 
     });
+
+
 
     require __DIR__.'/auth.php';
 
