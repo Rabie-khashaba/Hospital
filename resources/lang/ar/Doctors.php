@@ -8,6 +8,7 @@ return array (
   'Status' => 'الحالة',
   'Status_change' => 'تغير الحالة',
   'add_doctor' => 'اضافة طبيب',
+  'edit_doctor' => 'تعديل طبيب',
   'appointments' => 'المواعيد',
   'confirm_password' => 'تاكيد كلمة المرور',
   'created_at' => 'تاريخ الاضافة',
@@ -24,4 +25,5 @@ return array (
   'section' => 'القسم',
   'submit' => 'تاكيد',
   'update_password' => 'تغير كلمة المرور',
+    'edit_data'=>'تعديل البيانات'
 );

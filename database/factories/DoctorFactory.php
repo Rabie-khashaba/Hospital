@@ -22,7 +22,7 @@ class DoctorFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'appointments' => $this->faker->randomElement(['السبت','الحد','الاتنين','التلات','الاربع','الخميس','الجمعه']),
+            //'appointments' => $this->faker->randomElement(['السبت','الحد','الاتنين','التلات','الاربع','الخميس','الجمعه']),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$12$SuQuvGTZg0dsBMI0lRh1kOlQd1CM1F7mcNpVAs786nmvtZQuueCJ6', // password

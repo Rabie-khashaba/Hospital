@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('doctor_translations', function (Blueprint $table) {
+        Schema::create('appointment_translations', function (Blueprint $table) {
             $table->id();
             $table->string('locale')->index();
-            // this translated
             $table->string('name');
-            //$table->string('appointments');
-
-            $table->unique(['doctor_id','locale']);
-            $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->unique(['appointment_id','locale']);
+            $table->foreignId('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('doctor_translations');
+        Schema::dropIfExists('appointment_translations');
     }
 };

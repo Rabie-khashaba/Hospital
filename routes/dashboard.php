@@ -50,7 +50,11 @@ Route::group(
 
         //section---------
         Route::resource('sections', SectionController::class);
+
+        //Doctor----------
         Route::resource('Doctors',   DoctorController::class);
+        Route::post('update_password', [DoctorController::class, 'update_password'])->name('update_password');
+        Route::post('update_status', [DoctorController::class, 'update_status'])->name('update_status');
 
     });
 
