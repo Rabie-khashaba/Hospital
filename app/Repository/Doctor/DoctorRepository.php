@@ -47,7 +47,6 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor->phone = $request->phone;
             $doctor->section_id = $request->section_id;
             $doctor->status = 1;
-            $doctor->price = 200;
 
             $doctor->save();
 

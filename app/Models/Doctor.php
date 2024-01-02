@@ -14,7 +14,7 @@ class Doctor extends Authenticatable
     use HasFactory;
     use Translatable;
     public $translatedAttributes = ['name',];
-    public $fillable= ['email','email_verified_at','password','phone','section_id','price','status','name'];
+    public $fillable= ['email','email_verified_at','password','phone','section_id','status','name'];
 
 
     /**
