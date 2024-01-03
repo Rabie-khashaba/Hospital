@@ -71,6 +71,45 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     // update Doctor
     public function update($request){
+        DB::beginTransaction();
+        try {
+            //return $request;
+            $doctor = Doctor::findOrfail($request->id);
+
+            //Update table doctor
+            $doctor->name = $request->name;
+            $doctor->email = $request->email;
+            $doctor->password = Hash::make("11111111");
+            $doctor->phone = $request->phone;
+            $doctor->section_id = $request->section_id;
+            $doctor->save();
+
+            // Update pivot table
+            $doctor->doctorappointments()->sync($request->appointments);
+
+
+            //Update Image if Exist
+
+            if($request->has('photo')) {
+
+                // Delete old photo
+                if ($doctor->image){
+                    $old_img = $doctor->image->filename;
+                    $this->Delete_attachment('upload_image','Doctors/'.$old_img,$request->id);
+                }
+                //Upload img
+                //$this->StoreImage($request,'photo','Doctors','upload_image',$request->id,'App\Models\Doctor');
+                $this->StoreImage($request,'Doctors','upload_image',$doctor->id,'App\Models\Doctor');
+            }
+
+            DB::commit();
+            session()->flash('edit');
+            return redirect()->route('Doctors.index');
+
+        }catch (\Exception $exception){
+            DB::rollback();
+            return redirect()->back()->withErrors(['error' => $exception->getMessage()]);
+        }
 
     }
 
@@ -110,17 +149,46 @@ class DoctorRepository implements DoctorRepositoryInterface
     }
     // destroy Doctor
     public function edit($id){
-
+        $doctor = Doctor::findOrFail($id);
+        $sections = Section::all();
+        $appointments = Appointment::all();
+        return view('Dashboard.Doctors.edit',compact('doctor','sections','appointments'));
     }
 
     // update_password
     public function update_password($request){
+        try {
 
+            $doctor = Doctor::findOrFail($request->id);
+
+            $doctor->update([
+                'password'=> $request->password,
+            ]);
+            session()->flash('edit');
+            return redirect()->route('Doctors.index');
+
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     // update_status
     public function update_status($request){
+        try {
 
+            $doctor = Doctor::findOrFail($request->id);
+
+            $doctor->update([
+                'password'=> $request->status,
+            ]);
+            session()->flash('edit');
+            return redirect()->route('Doctors.index');
+
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
 
