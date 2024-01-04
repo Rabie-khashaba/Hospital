@@ -45,8 +45,9 @@ class SectionRepository implements SectionRepositoryInterface
 
     // destroy Sections
     public function show($id){
-        $doctors =Doctor::where('section_id',$id)->get();
-        //$doctors =Section::findOrFail($id)->doctors;
+        //$doctors =Doctor::where('section_id',$id)->get();
+        $doctors =Section::findOrFail($id)->doctors;
+
         $section = Section::findOrFail($id);
         return view('Dashboard.section.show_doctors',compact('doctors','section'));
     }
