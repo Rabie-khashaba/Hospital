@@ -9,6 +9,7 @@ use App\Models\Section;
 use App\Traits\UploadImage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class DoctorRepository implements DoctorRepositoryInterface
 {
@@ -162,7 +163,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor = Doctor::findOrFail($request->id);
 
             $doctor->update([
-                'password'=> $request->password,
+                'password'=> Hash::make($request->password),
             ]);
             session()->flash('edit');
             return redirect()->route('Doctors.index');
@@ -180,7 +181,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor = Doctor::findOrFail($request->id);
 
             $doctor->update([
-                'password'=> $request->status,
+                'status'=> $request->status,
             ]);
             session()->flash('edit');
             return redirect()->route('Doctors.index');

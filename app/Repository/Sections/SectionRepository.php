@@ -3,6 +3,7 @@
 namespace App\Repository\Sections;
 
 use App\Interfaces\Sections\SectionRepositoryInterface;
+use App\Models\Doctor;
 use App\Models\Section;
 
 class SectionRepository implements SectionRepositoryInterface
@@ -43,5 +44,10 @@ class SectionRepository implements SectionRepositoryInterface
     }
 
     // destroy Sections
-    public function show($id){}
+    public function show($id){
+        $doctors =Doctor::where('section_id',$id)->get();
+        //$doctors =Section::findOrFail($id)->doctors;
+        $section = Section::findOrFail($id);
+        return view('Dashboard.section.show_doctors',compact('doctors','section'));
+    }
 }
