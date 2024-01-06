@@ -4,7 +4,6 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -60,6 +59,11 @@ Route::group(
 
         //Services
         Route::resource('Service', SingleServiceController::class);
+
+
+        //Group Services( Livewire )
+        Route::view('Add_GroupServices','livewire.GroupServices.include_create')->name('Add_GroupServices');
+
 
 
     });
