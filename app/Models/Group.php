@@ -17,4 +17,5 @@ class Group extends Model
     {
         return $this->belongsToMany(Service::class,'service_groups')->withPivot('quantity');
     }
+
 }

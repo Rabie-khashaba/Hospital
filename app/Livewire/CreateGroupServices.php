@@ -90,7 +90,7 @@ class CreateGroupServices extends Component
 
     public function removeService($index)
     {
-        unset($this->GroupsItems[$index]);
+        unset($this->GroupsItems[$index]); // يعني احذفلي الخدمه ال index بتاعها ده
         $this->GroupsItems = array_values($this->GroupsItems);
     }
 
@@ -203,7 +203,7 @@ class CreateGroupServices extends Component
                 'quantity' => $serviceGroup->pivot->quantity,
                 'is_saved' => true,
                 'service_name' => $serviceGroup->name,
-                'service_price' => $serviceGroup->price
+                'service_price' => $serviceGroup->price,
             ];
         }
     }
