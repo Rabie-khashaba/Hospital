@@ -78,7 +78,9 @@ Route::group(
         //Group Services( Livewire )
         Route::view('Add_GroupServices','livewire.GroupServices.include_create')->name('Add_GroupServices');
 
-
+        //SingleInvoice
+        Route::view('SingleServiceInvoice','livewire.single_invoices.index')->name('SingleServiceInvoice');
+//        Route::view('Print_single_invoices','livewire.single_invoices.print')->name('Print_single_invoices');
 
 
 
