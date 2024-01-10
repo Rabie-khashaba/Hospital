@@ -4,18 +4,18 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>اسم الخدمة</th>
-            <th>اسم المريض</th>
-            <th>تاريخ الفاتورة</th>
-            <th>اسم الدكتور</th>
-            <th>القسم</th>
-            <th>سعر الخدمة</th>
-            <th>قيمة الخصم</th>
-            <th>نسبة الضريبة</th>
-            <th>قيمة الضريبة</th>
-            <th>الاجمالي مع الضريبة</th>
-            <th>نوع الفاتورة</th>
-            <th>العمليات</th>
+            <th>{{trans('singleServiceInvoice.service_name')}}</th>
+            <th>{{trans('singleServiceInvoice.patient_name')}}</th>
+            <th>{{trans('singleServiceInvoice.invoice_data')}}</th>
+            <th>{{trans('singleServiceInvoice.doctor_name')}}</th>
+            <th>{{trans('singleServiceInvoice.section')}}</th>
+            <th>{{trans('singleServiceInvoice.service_price')}}</th>
+            <th>{{trans('singleServiceInvoice.discount_value')}}</th>
+            <th>{{trans('singleServiceInvoice.tax_rate')}}</th>
+            <th>{{trans('singleServiceInvoice.tax_value')}}</th>
+            <th>{{trans('singleServiceInvoice.total_with_tax')}}</th>
+            <th>{{trans('singleServiceInvoice.invoice_type')}}</th>
+            <th>{{trans('singleServiceInvoice.processes')}}</th>
         </tr>
         </thead>
         <tbody>

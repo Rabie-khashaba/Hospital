@@ -31,16 +31,16 @@
 										<thead>
 											<tr>
 												<th>#</th>
-												<th >رقم السيارة</th>
-												<th >موديل السيارة</th>
-												<th>سنة الصنع</th>
-												<th>نوع السيارة</th>
-												<th >اسم السائق</th>
-                                                <th >رقم الرخصة</th>
-                                                <th >رقم الهاتف</th>
-                                                <th >حالة السيارة</th>
-                                                <th >ملاحظات</th>
-                                                <th>العمليات</th>
+												<th >{{trans('ambulance.ambulance_number')}}</th>
+												<th >{{trans('ambulance.ambulance_model')}}</th>
+												<th >{{trans('ambulance.year_made')}}</th>
+												<th>{{trans('ambulance.ambulance_type')}}</th>
+												<th>{{trans('ambulance.driver_name')}}</th>
+												<th >{{trans('ambulance.License_number')}}</th>
+                                                <th >{{trans('ambulance.phone_number')}}</th>
+                                                <th >{{trans('ambulance.ambulance_status')}}</th>
+                                                <th >{{trans('ambulance.notes')}}</th>
+                                                <th >{{trans('ambulance.processes')}}</th>
 											</tr>
 										</thead>
 										<tbody>

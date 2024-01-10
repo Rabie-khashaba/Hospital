@@ -2,12 +2,16 @@
 @section('css')
     <link href="{{URL::asset('dashboard/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
 @endsection
+
+@section('title')
+    {{trans('Patient.show_patient')}}
+@stop
 @section('page-header')
 				<!-- breadcrumb -->
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">المرضي</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ قائمة المرضي</span>
+							<h4 class="content-title mb-0 my-auto">{{trans('Patient.Patient')}}</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{trans('Patient.show_patient')}}</span>
 						</div>
 					</div>
 				</div>
@@ -22,7 +26,7 @@
 						<div class="card">
 							<div class="card-header pb-0">
 								<div class="d-flex justify-content-between">
-                                    <a href="{{route('Patients.create')}}" class="btn btn-primary">اضافة مريض جديد</a>
+                                    <a href="{{route('Patients.create')}}" class="btn btn-primary">{{trans('Patient.add_new_Patient')}}</a>
 								</div>
 							</div>
 							<div class="card-body">
@@ -31,14 +35,14 @@
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>اسم المريض</th>
-												<th >البريد الالكتروني</th>
-												<th>تاريخ الميلاد</th>
-												<th>رقم الهاتف</th>
-												<th>الجنس</th>
-                                                <th >فصلية الدم</th>
-                                                <th >العنوان</th>
-                                                <th>العمليات</th>
+												<th>{{trans('Patient.name')}}</th>
+												<th >{{trans('Patient.email')}}</th>
+												<th>{{trans('Patient.Birthday')}}</th>
+												<th>{{trans('Patient.phone_number')}}</th>
+												<th>{{trans('Patient.Gender')}}</th>
+                                                <th >{{trans('Patient.Blood')}}</th>
+                                                <th >{{trans('Patient.Address')}}</th>
+                                                <th>{{trans('Patient.Processes')}}</th>
 											</tr>
 										</thead>
 										<tbody>

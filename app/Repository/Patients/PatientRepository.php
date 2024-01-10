@@ -2,6 +2,7 @@
 
 namespace App\Repository\Patients;
 
+use App\Models\Invoice;
 use App\Models\Patient;
 use Illuminate\Support\Facades\Hash;
 
