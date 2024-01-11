@@ -16,4 +16,9 @@ return array(
     'total_with_tax'=>'Total With Tax',
     'invoice_type'=>'Invoice Type',
     'processes'=>'Processes',
+    'add_new_invoice'=>'Add New Invoice',
+
+    'choose_from_list'=>'-- Choose From List --',
+    'Submit'=>'Submit',
+
 );

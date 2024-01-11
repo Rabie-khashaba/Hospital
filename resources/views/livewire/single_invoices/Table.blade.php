@@ -1,4 +1,4 @@
-<button class="btn btn-primary pull-right" wire:click="show_form_add" type="button">اضافة فاتورة جديدة </button><br><br>
+<button class="btn btn-primary pull-right" wire:click="show_form_add" type="button">{{trans('singleServiceInvoice.add_new_invoice')}} </button><br><br>
 <div class="table-responsive">
     <table class="table text-md-nowrap" id="example1" data-page-length="50"style="text-align: center">
         <thead>

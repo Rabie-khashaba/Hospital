@@ -18,4 +18,8 @@ return array(
     'invoice_type'=>'نوع الفاتورة',
     'processes'=>'العمليات',
 
+    'add_new_invoice'=>'اضافة فاتورة جديدة',
+    'choose_from_list'=>'-- اختار من القائمة --',
+    'Submit'=>'تأكيد البيانات',
+
 );

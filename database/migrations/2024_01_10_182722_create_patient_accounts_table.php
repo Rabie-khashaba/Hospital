@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('patient_id')->references('id')->on('patients')->onDelete('cascade');
 //            $table->foreignId('invoice_id')->nullable()->references('id')->on('invoices')->onDelete('cascade');
-//            $table->foreignId('receipt_id')->nullable()->references('id')->on('receipt_accounts')->onDelete('cascade');
+            $table->foreignId('receipt_id')->nullable()->references('id')->on('receipt_accounts')->onDelete('cascade');
 //            $table->foreignId('Payment_id')->nullable()->references('id')->on('payment_accounts')->onDelete('cascade');
 
             $table->foreignId('Single_invoices_id')->nullable()->references('id')->on('single_invoices')->onDelete('cascade');

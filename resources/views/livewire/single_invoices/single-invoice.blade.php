@@ -31,9 +31,9 @@
                     @csrf
                     <div class="row">
                         <div class="col">
-                            <label>اسم المريض</label>
+                            <label>{{trans('singleServiceInvoice.patient_name')}}</label>
                             <select wire:model="patient_id" class="form-control" required>
-                                <option value=""  >-- اختار من القائمة --</option>
+                                <option value="" >{{trans('singleServiceInvoice.choose_from_list')}}</option>
                                 @foreach($Patients as $Patient)
                                     <option value="{{$Patient->id}}">{{$Patient->name}}</option>
                                 @endforeach
@@ -42,9 +42,9 @@
 
 
                         <div class="col">
-                            <label>اسم الدكتور</label>
+                            <label>{{trans('singleServiceInvoice.doctor_name')}}</label>
                             <select wire:model="doctor_id"  wire:change="get_section" class="form-control"  id="exampleFormControlSelect1" required>
-                                <option value="" >-- اختار من القائمة --</option>
+                                <option value="" >{{trans('singleServiceInvoice.choose_from_list')}}</option>
                                 @foreach($Doctors as $Doctor)
                                     <option value="{{$Doctor->id}}">{{$Doctor->name}}</option>
                                 @endforeach
@@ -53,14 +53,14 @@
 
 
                         <div class="col">
-                            <label>القسم</label>
+                            <label>{{trans('singleServiceInvoice.section')}}</label>
                             <input wire:model="section_name" type="text" class="form-control" readonly >
                         </div>
 
                         <div class="col">
-                            <label>نوع الفاتورة</label>
+                            <label>{{trans('singleServiceInvoice.invoice_type')}}</label>
                             <select wire:model="type" class="form-control" {{$updateMode == true ? 'disabled':''}}>
-                                <option value="" >-- اختار من القائمة --</option>
+                                <option value="" >{{trans('singleServiceInvoice.choose_from_list')}}</option>
                                 <option value="1">نقدي</option>
                                 <option value="2">اجل</option>
                             </select>
@@ -96,7 +96,7 @@
                                                 <th scope="row">1</th>
                                                 <td>
                                                     <select wire:model="Service_id" class="form-control" wire:change="get_price" id="exampleFormControlSelect1">
-                                                        <option value="">-- اختار الخدمة --</option>
+                                                        <option value="">{{trans('singleServiceInvoice.choose_from_list')}}</option>
                                                         @foreach($Services as $Service)
                                                             <option value="{{$Service->id}}">{{$Service->name}}</option>
                                                         @endforeach
@@ -116,7 +116,7 @@
                         </div>
                     </div>
 
-                    <input class="btn btn-outline-success" type="submit" value="تاكيد البيانات">
+                    <input class="btn btn-outline-success" type="submit" value="{{trans('singleServiceInvoice.Submit')}}">
                 </form>
 
         @endif
