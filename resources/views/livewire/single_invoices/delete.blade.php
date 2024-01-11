@@ -15,7 +15,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                <button type="button" wire:click.prevent="destroy()" class="btn btn-danger">حذف</button>
+                <button type="button" wire:click.prevent="destroy" class="btn btn-danger">حذف</button>
             </div>
 
         </div>

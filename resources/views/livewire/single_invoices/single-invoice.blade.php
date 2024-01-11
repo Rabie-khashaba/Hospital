@@ -10,11 +10,15 @@
         @endif
 
         @if ($InvoiceSaved)
-            <div class="alert alert-info">تم حفظ البيانات بنجاح.</div>
+            <div class="alert alert-success">تم حفظ البيانات بنجاح.</div>
         @endif
 
         @if ($InvoiceUpdated)
             <div class="alert alert-info">تم تعديل البيانات بنجاح.</div>
+        @endif
+
+        @if ($InvoiceDeleted)
+            <div class="alert alert-danger">تم حذف البيانات بنجاح.</div>
         @endif
 
         @if($show_table)
@@ -50,7 +54,7 @@
 
                         <div class="col">
                             <label>القسم</label>
-                            <input wire:model="section_id" type="text" class="form-control" readonly >
+                            <input wire:model="section_name" type="text" class="form-control" readonly >
                         </div>
 
                         <div class="col">
@@ -79,12 +83,12 @@
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>اسم الخدمة</th>
-                                                <th>سعر الخدمة</th>
-                                                <th>قيمة الخصم</th>
-                                                <th>نسبة الضريبة</th>
-                                                <th>قيمة الضريبة</th>
-                                                <th>الاجمالي مع الضريبة</th>
+                                                <th>{{trans('singleServiceInvoice.service_name')}}</th>
+                                                <th>{{trans('singleServiceInvoice.service_price')}}</th>
+                                                <th>{{trans('singleServiceInvoice.discount_value')}}</th>
+                                                <th>{{trans('singleServiceInvoice.tax_rate')}}</th>
+                                                <th>{{trans('singleServiceInvoice.tax_value')}}</th>
+                                                <th>{{trans('singleServiceInvoice.total_with_tax')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
