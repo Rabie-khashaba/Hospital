@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\InsuranceController;
 use App\Http\Controllers\Dashboard\PatientController;
+use App\Http\Controllers\Dashboard\PaymentAccountController;
 use App\Http\Controllers\Dashboard\ReceiptAccountController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
@@ -75,6 +76,9 @@ Route::group(
         //Receipt (سند قبض)
         Route::resource('Receipt', ReceiptAccountController::class);
 
+        //Payment (سند صرف)
+        Route::resource('Payment', PaymentAccountController::class);
+
 
 
         //Livewire
@@ -85,7 +89,6 @@ Route::group(
         //SingleInvoice
         Route::view('SingleServiceInvoice','livewire.single_invoices.index')->name('SingleServiceInvoice');
 //        Route::view('Print_single_invoices','livewire.single_invoices.print')->name('Print_single_invoices');
-
 
 
     });
