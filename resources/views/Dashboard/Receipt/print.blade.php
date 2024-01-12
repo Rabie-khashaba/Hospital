@@ -44,7 +44,7 @@
                                 <p class="invoice-info-row"><span>تاريخ الاصدار</span> <span>{{$receipt->date}}</span>
                                 </p>
                                 <p class="invoice-info-row "><span>اسم المريض</span>
-                                    <span>{{$receipt->patients->name}}</span></p>
+                                    <span>{{$receipt->patient->name}}</span></p>
                             </div>
                         </div>
                         <div class="table-responsive mg-t-40">

@@ -82,6 +82,9 @@ class ReceiptRepository implements \App\Interfaces\Finance\ReceiptRepositoryInte
     // show Receipt
     public function show($id){
 
+        $receipt = ReceiptAccount::findorfail($id);
+        return view('Dashboard.Receipt.print',compact('receipt'));
+
     }
 
     // Update Receipt

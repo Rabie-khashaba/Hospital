@@ -76,9 +76,11 @@ class PaymentRepository implements \App\Interfaces\Finance\PaymentRepositoryInte
 
     }
 
-    // show Payment
+    // show Payment (print)
     public function show($id){
-
+        $payment_account = PaymentAccount::findorfail($id);
+        //return $payment_account;
+        return view('Dashboard.Payment.print',compact('payment_account'));
     }
 
     // Update Payment
