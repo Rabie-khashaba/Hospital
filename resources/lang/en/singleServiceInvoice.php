@@ -3,6 +3,7 @@
 return array(
     'Invoices'=>'Invoices',
     'singleServiceInvoice'=>'Single Service Invoice',
+    'GroupServiceInvoice'=>'Group Service Invoice',
 
     'service_name'=>'Service Name',
     'patient_name'=>'Patient Name',

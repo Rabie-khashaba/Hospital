@@ -90,6 +90,11 @@ Route::group(
         Route::view('SingleServiceInvoice','livewire.single_invoices.index')->name('SingleServiceInvoice');
         Route::view('Print_single_invoices','livewire.single_invoices.print')->name('Print_single_invoices');
 
+        //Group Invoice
+        Route::view('GroupServiceInvoice','livewire.Group_Invoices.index')->name('GroupServiceInvoice');
+        Route::view('group_Print_single_invoices','livewire.Group_Invoices.print')->name('group_Print_single_invoices');
+
+
 
     });
 

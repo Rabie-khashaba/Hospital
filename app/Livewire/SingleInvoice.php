@@ -230,7 +230,6 @@ class SingleInvoice extends Component
                   // $single_invoices->invoice_status = 1;
                   $single_invoices->save();
 
-
                   //save in PatientAccount
                   $patientAccount = new PatientAccount();
                   $patientAccount->date = date('Y-m-d');

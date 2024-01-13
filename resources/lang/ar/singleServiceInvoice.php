@@ -4,6 +4,7 @@ return array(
 
     'Invoices'=>'الفواتير',
     'singleServiceInvoice'=>'فاتوره خدمه مفرده',
+    'GroupServiceInvoice'=>'فاتوره خدمه مجمعه',
 
     'service_name'=>'اسم الخدمة',
     'patient_name'=>'اسم المريض',
@@ -21,5 +22,6 @@ return array(
     'add_new_invoice'=>'اضافة فاتورة جديدة',
     'choose_from_list'=>'-- اختار من القائمة --',
     'Submit'=>'تأكيد البيانات',
+
 
 );
