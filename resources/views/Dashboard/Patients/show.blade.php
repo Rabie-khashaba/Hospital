@@ -183,7 +183,7 @@
                                                             <td>{{$loop->iteration}}</td>
                                                             <td>{{$Patient_account->date}}</td>
                                                             <td>
-                                                                @if($Patient_account->invoice_id == true)
+                                                                @if($Patient_account->Single_invoices_id == true)
                                                                     {{$Patient_account->invoice->Service->name ?? $Patient_account->invoice->Group->name }}
 
                                                                 @elseif($Patient_account->receipt_id == true)
@@ -207,7 +207,7 @@
                                                         <td class="alert alert-primary">{{ number_format( $Debit = $Patient_accounts->sum('Debit'), 2) }}</td>
                                                         <td class="alert alert-primary">{{ number_format( $credit = $Patient_accounts->sum('credit'), 2) }}</td>
                                                         <td class="alert alert-danger">
-                                                            <span class="text-danger"> {{$Debit - $credit}}   {{ $Debit-$credit > 0 ? 'مدين' :'دائن'}}</span>                                                        </td>
+                                                            <span class="text-danger"> {{$Debit - $credit}}   {{ ($Debit-$credit > 0 ? 'مدين': ($Debit-$credit < 0 ? 'دائن' : ''))}}</span>                                                        </td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
