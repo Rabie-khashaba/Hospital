@@ -27,7 +27,7 @@ class GroupInvoice extends Component
     public function render()
     {
         return view('livewire.Group_Invoices.group-invoice',[
-            'group_invoices'=>\App\Models\GroupInvoice::all(),
+            'group_invoices'=>\App\Models\Invoice::where('invoice_type',2)->get(),
             'Patients'=> Patient::all(),
             'Doctors'=> Doctor::all(),
             'Groups'=> Group::all(),
@@ -60,7 +60,7 @@ class GroupInvoice extends Component
         $this->show_table = false;
 
         //get data of this id (SingleInvoice)
-        $group_invoice = \App\Models\GroupInvoice::findorfail($id);
+        $group_invoice = \App\Models\Invoice::findorfail($id);
         //dd($single_invoice);
         $this->Group_invoice_id = $group_invoice->id;
         $this->patient_id = $group_invoice->patient_id;
@@ -89,7 +89,8 @@ class GroupInvoice extends Component
                 if($this->updateMode){
 
                     // Update in SingleInvoice
-                    $group_invoices = \App\Models\GroupInvoice::FindorFail($this->Group_invoice_id);
+                    $group_invoices = \App\Models\Invoice::FindorFail($this->Group_invoice_id);
+                    $group_invoices->invoice_type = 2;
                     $group_invoices->invoice_date = date('Y-m-d');
                     $group_invoices->patient_id = $this->patient_id;
                     $group_invoices->doctor_id = $this->doctor_id;
@@ -110,7 +111,7 @@ class GroupInvoice extends Component
                     //Update in FundAccount
                     $fundAccount = new FundAccount();
                     $fundAccount->date = date('Y-m-d');
-                    $fundAccount->Group_invoices_id = $group_invoices->id;
+                    $fundAccount->invoice_id = $group_invoices->id;
                     $fundAccount->Debit = $group_invoices->total_with_tax;
                     $fundAccount->credit = 0.00;
                     $fundAccount->save();
@@ -124,7 +125,8 @@ class GroupInvoice extends Component
                 //insert (store)
                 else{
                     //save in SingleInvoice
-                    $group_invoices = new \App\Models\GroupInvoice();
+                    $group_invoices = new \App\Models\Invoice();
+                    $group_invoices->invoice_type = 2;
                     $group_invoices->invoice_date = date('Y-m-d');
                     $group_invoices->patient_id = $this->patient_id;
                     $group_invoices->doctor_id = $this->doctor_id;
@@ -145,7 +147,7 @@ class GroupInvoice extends Component
                     //save in FundAccount
                     $fundAccount = new FundAccount();
                     $fundAccount->date = date('Y-m-d');
-                    $fundAccount->Group_invoices_id = $group_invoices->id;
+                    $fundAccount->invoice_id = $group_invoices->id;
                     $fundAccount->Debit = $group_invoices->total_with_tax;
                     $fundAccount->credit = 0.00;
                     $fundAccount->save();
@@ -163,7 +165,8 @@ class GroupInvoice extends Component
                 if($this->updateMode){
 
                     //Update in SingleInvoice
-                    $group_invoices = \App\Models\GroupInvoice::FindorFail($this->Group_invoice_id);;
+                    $group_invoices = \App\Models\Invoice::FindorFail($this->Group_invoice_id);
+                    $group_invoices->invoice_type = 2;
                     $group_invoices->invoice_date = date('Y-m-d');
                     $group_invoices->patient_id = $this->patient_id;
                     $group_invoices->doctor_id = $this->doctor_id;
@@ -185,7 +188,7 @@ class GroupInvoice extends Component
                     $patientAccount = new PatientAccount();
                     $patientAccount->date = date('Y-m-d');
                     $patientAccount->patient_id = $group_invoices->patient_id;
-                    $patientAccount->Group_invoices_id = $group_invoices->id;
+                    $patientAccount->invoice_id = $group_invoices->id;
                     $patientAccount->Debit =$group_invoices->total_with_tax ;
                     $patientAccount->credit =0.00;
                     $patientAccount->save();
@@ -200,7 +203,8 @@ class GroupInvoice extends Component
                 }else{
 
                     //save in SingleInvoice
-                    $group_invoices = new \App\Models\GroupInvoice();
+                    $group_invoices = new \App\Models\Invoice();
+                    $group_invoices->invoice_type = 2;
                     $group_invoices->invoice_date = date('Y-m-d');
                     $group_invoices->patient_id = $this->patient_id;
                     $group_invoices->doctor_id = $this->doctor_id;
@@ -221,7 +225,7 @@ class GroupInvoice extends Component
                     $patientAccount = new PatientAccount();
                     $patientAccount->date = date('Y-m-d');
                     $patientAccount->patient_id = $group_invoices->patient_id;
-                    $patientAccount->Group_invoices_id = $group_invoices->id;
+                    $patientAccount->invoice_id = $group_invoices->id;
                     $patientAccount->Debit =$group_invoices->total_with_tax ;
                     $patientAccount->credit =0.00;
                     $patientAccount->save();
@@ -253,7 +257,7 @@ class GroupInvoice extends Component
 
     public function destroy(){
 
-        \App\Models\GroupInvoice::destroy($this->Group_invoice_id);
+        \App\Models\Invoice::destroy($this->Group_invoice_id);
         //$this->InvoiceDeleted = true;
         return redirect()->route('GroupServiceInvoice');
 
@@ -263,7 +267,7 @@ class GroupInvoice extends Component
 
     public function print($id){
 
-        $group_invoice = \App\Models\GroupInvoice::findorfail($id);
+        $group_invoice = \App\Models\Invoice::findorfail($id);
         return Redirect::route('group_Print_single_invoices',[
             'invoice_date' => $group_invoice->invoice_date,
             'doctor_id' => $group_invoice->Doctor->name,
