@@ -29,6 +29,10 @@ class RedirectIfAuthenticated
             return redirect(RouteServiceProvider::DOCTOR);
         }
 
+        if (auth('patient')->check()) {
+            return redirect(RouteServiceProvider::PATIENT);
+        }
+
         return $next($request);
     }
 }

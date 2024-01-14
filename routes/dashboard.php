@@ -48,6 +48,11 @@ Route::group(
         return view('Dashboard.doctor.dashboard');
     })->middleware(['auth:doctor'])->name('dashboard.doctor');
 
+    // dashboard Doctor----------
+        Route::get('/dashboard/patient', function (){
+            return view('Dashboard.Dashboard_patient.dashboard');
+        })->middleware(['auth:patient'])->name('dashboard.patient');
+
 
 
     // -------------------------------------------------------------
@@ -83,7 +88,7 @@ Route::group(
 
         //Livewire
 
-        //Group Services( Livewire )
+        //Group Services( Livewire)
         Route::view('Add_GroupServices','livewire.GroupServices.include_create')->name('Add_GroupServices');
 
         //SingleInvoice
@@ -93,7 +98,6 @@ Route::group(
         //Group Invoice
         Route::view('GroupServiceInvoice','livewire.Group_Invoices.index')->name('GroupServiceInvoice');
         Route::view('group_Print_single_invoices','livewire.Group_Invoices.print')->name('group_Print_single_invoices');
-
 
 
     });

@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\PatientController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,9 @@ Route::middleware('guest')->group(function () {
 
     //Doctor
     Route::post('login/doctor', [DoctorController::class, 'store'])->name('login.doctor');
+
+    //Patient
+    Route::post('login/patient', [PatientController::class, 'store'])->name('login.patient');
 
 
 
@@ -81,7 +85,14 @@ Route::middleware('auth:admin')->group(function () {
 // doctor
 Route::middleware('auth:doctor')->group(function () {
     //logout
-    Route::post('logout/doctor', [AdminController::class, 'destroy'])->name('logout.doctor');
+    Route::post('logout/doctor', [DoctorController::class, 'destroy'])->name('logout.doctor');
+
+
+});
+
+Route::middleware('auth:patient')->group(function () {
+    //logout
+    Route::post('logout/patient', [PatientController::class, 'destroy'])->name('logout.patient');
 
 
 });
