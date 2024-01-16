@@ -49,8 +49,18 @@ Route::group(
             //الكشوفات
             Route::resource('invoices', InvoiceController::class);
 
+            //completed
+            Route::get('completed_invoices', [InvoiceController::class,'completedInvoices'])->name('completedInvoices');
+
+            //reviewed
+            Route::get('review_invoices', [InvoiceController::class,'reviewInvoices'])->name('reviewInvoices');
+
             //Diagnostic
             Route::resource('Diagnostics', DiagnosticController::class);
+            //add_review
+            Route::post('add_review', [DiagnosticController::class,'addReview'])->name('add_review');
+
+
 
 
 

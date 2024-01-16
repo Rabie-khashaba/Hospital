@@ -1,6 +1,6 @@
 @extends('Dashboard.layouts.master')
 @section('title')
-   الكشوفات
+   الكشوفات المكتملة
 @stop
 @section('css')
     <!-- Internal Data table css -->
@@ -21,7 +21,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">الكشوفات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ الفواتير</span>
+							<h4 class="content-title mb-0 my-auto">الكشوفات المكتملة</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ الفواتير</span>
 						</div>
 					</div>
 				</div>
@@ -49,7 +49,6 @@
                                                 <th>قيمة الضريبة</th>
                                                 <th>الاجمالي مع الضريبة</th>
                                                 <th>حالة الفاتورة</th>
-                                                <th>العمليات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -58,8 +57,8 @@
                                                    <td>{{ $loop->iteration}}</td>
                                                    <td>{{ $invoice->invoice_date }}</td>
                                                    <td>{{ $invoice->Service->name ?? $invoice->Group->name }}</td>
-{{--                                                   {{route('patient_details',$invoice->patient_id)}}--}}
-                                                   <td><a href="{{route('Diagnostics.show',$invoice->patient_id)}}">{{ $invoice->Patient->name }}</a></td>
+                                                   <td><a href="">{{ $invoice->Patient->name }}</a></td>
+{{--                                                   {route('patient_details',$invoice->patient_id)}}--}}
                                                    <td>{{ number_format($invoice->price, 2) }}</td>
                                                    <td>{{ number_format($invoice->discount_value, 2) }}</td>
                                                    <td>{{ $invoice->tax_rate }}%</td>
@@ -74,25 +73,8 @@
                                                           <span class="badge badge-success">مكتملة</span>
                                                        @endif
                                                    </td>
-
-                                                   <td>
-
-                                                       <div class="dropdown">
-                                                           <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown" type="button">{{trans('doctors.Processes')}}<i class="fas fa-caret-down mr-1"></i></button>
-                                                           <div class="dropdown-menu tx-13">
-                                                               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_diagnosis{{$invoice->id}}"><i class="text-primary fa fa-stethoscope"></i>&nbsp;&nbsp;اضافة تشخيص </a>
-                                                               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_review{{$invoice->id}}"><i class="text-warning far fa-file-alt"></i>&nbsp;&nbsp;اضافة مراجعة </a>
-                                                               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#xray_conversion{{$invoice->id}}"><i class="text-primary fas fa-x-ray"></i>&nbsp;&nbsp;تحويل الي الاشعة </a>
-                                                               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#laboratorie_conversion{{$invoice->id}}"><i class="text-warning fas fa-syringe"></i>&nbsp;&nbsp;تحويل الي المختبر </a>
-                                                               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete"><i class="text-danger  ti-trash"></i>&nbsp;&nbsp;حذف البيانات</a>
-                                                           </div>
-                                                       </div>
-                                                   </td>
                                                </tr>
                                                @include('Dashboard.Dashboard_doctor.invoice.add_diagnosis')
-                                               @include('Dashboard.Dashboard_doctor.invoice.add_review')
-{{--                                               @include('Dashboard.Dashboard_doctor.invoice.xray_conversion')--}}
-{{--                                               @include('Dashboard.Dashboard_doctor.invoice.Laboratorie_conversion')--}}
                                            @endforeach
                                             </tbody>
                                         </table>
@@ -113,10 +95,10 @@
 @section('js')
 
 
-
     <!--Internal  Notify js -->
     <script src="{{URL::asset('dashboard/plugins/notify/js/notifIt.js')}}"></script>
     <script src="{{URL::asset('/plugins/notify/js/notifit-custom.js')}}"></script>
+
 
     <!--Internal  Datepicker js -->
     <script src="{{URL::asset('dashboard/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
@@ -136,12 +118,5 @@
     <script src="{{URL::asset('dashboard/plugins/pickerjs/picker.min.js')}}"></script>
     <!-- Internal form-elements js -->
     <script src="{{URL::asset('dashboard/js/form-elements.js')}}"></script>
-
-
-    <script>
-        $('#review_date').datetimepicker({
-
-        })
-    </script>
 
 @endsection

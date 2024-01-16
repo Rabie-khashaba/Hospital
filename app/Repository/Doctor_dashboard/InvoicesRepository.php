@@ -10,15 +10,22 @@ class InvoicesRepository implements InvoicesRepositoryInterface
 {
     // Get Invoices Doctor
     public function index(){
-        $invoices = Invoice::where('doctor_id', Auth::user()->id)->where('invoice_status',1)->get();
+        $invoices = Invoice::where('doctor_id', Auth::user()->id)->where('invoice_status',1)->get();//1 = فواتير تحت الاجراء
         return view('Dashboard.Dashboard_doctor.invoice.index',compact('invoices'));
     }
 
     // Get reviewInvoices Doctor
-    public function reviewInvoices(){}
+    public function reviewInvoices(){
+
+        $invoices = Invoice::where('doctor_id', Auth::user()->id)->where('invoice_status',2)->get();//1 = فواتير تحت الاجراء
+        return view('Dashboard.Dashboard_doctor.invoice.review_invoices',compact('invoices'));
+    }
 
     // Get completedInvoices Doctor
-    public function completedInvoices(){}
+    public function completedInvoices(){
+        $invoices = Invoice::where('doctor_id', Auth::user()->id)->where('invoice_status',3)->get();//1 = فواتير تحت الاجراء
+        return view('Dashboard.Dashboard_doctor.invoice.completed_invoices',compact('invoices'));
+    }
 
     // View rays
     public function show($id){}

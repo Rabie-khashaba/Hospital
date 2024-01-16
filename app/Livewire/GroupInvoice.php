@@ -88,7 +88,7 @@ class GroupInvoice extends Component
                 //Update
                 if($this->updateMode){
 
-                    // Update in SingleInvoice
+                    // Update i
                     $group_invoices = \App\Models\Invoice::FindorFail($this->Group_invoice_id);
                     $group_invoices->invoice_type = 2;
                     $group_invoices->invoice_date = date('Y-m-d');
@@ -104,7 +104,7 @@ class GroupInvoice extends Component
                     // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                     $group_invoices->total_with_tax = $group_invoices->price - $group_invoices->discount_value + $group_invoices->tax_value;
                     $group_invoices->type = 1;
-                    // $single_invoices->invoice_status = 1;
+                    $group_invoices->invoice_status = 1;
                     $group_invoices->save();
 
 
@@ -124,7 +124,7 @@ class GroupInvoice extends Component
 
                 //insert (store)
                 else{
-                    //save in SingleInvoice
+                    //save
                     $group_invoices = new \App\Models\Invoice();
                     $group_invoices->invoice_type = 2;
                     $group_invoices->invoice_date = date('Y-m-d');
@@ -140,7 +140,7 @@ class GroupInvoice extends Component
                     // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                     $group_invoices->total_with_tax = $group_invoices->price - $group_invoices->discount_value + $group_invoices->tax_value;
                     $group_invoices->type = $this->type;
-                    // $single_invoices->invoice_status = 1;
+                    $group_invoices->invoice_status = 1;
                     $group_invoices->save();
 
 
@@ -154,7 +154,7 @@ class GroupInvoice extends Component
 
                     $this->InvoiceSaved = true;
                     $this->show_table = true;
-                    $this->rest();
+
                 }
 
 
@@ -181,7 +181,7 @@ class GroupInvoice extends Component
                     // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                     $group_invoices->total_with_tax = $group_invoices->price - $group_invoices->discount_value + $group_invoices->tax_value;
                     $group_invoices->type = 2;
-                    // $single_invoices->invoice_status = 1;
+                    $group_invoices->invoice_status = 1;
                     $group_invoices->save();
 
 
@@ -199,11 +199,11 @@ class GroupInvoice extends Component
                     $this->InvoiceUpdated = true;
                     $this->show_table = true;
 
-                    $this->rest();
+
 
                 }else{
 
-                    //save in SingleInvoice
+                    //save
                     $group_invoices = new \App\Models\Invoice();
                     $group_invoices->invoice_type = 2;
                     $group_invoices->invoice_date = date('Y-m-d');
@@ -219,7 +219,7 @@ class GroupInvoice extends Component
                     // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                     $group_invoices->total_with_tax = $group_invoices->price - $group_invoices->discount_value + $group_invoices->tax_value;
                     $group_invoices->type = $this->type;
-                    // $single_invoices->invoice_status = 1;
+                    $group_invoices->invoice_status = 1;
                     $group_invoices->save();
 
                     //save in PatientAccount
@@ -235,7 +235,7 @@ class GroupInvoice extends Component
 
                     $this->InvoiceSaved = true;
                     $this->show_table = true;
-                    $this->rest();
+
 
                 }
             }
