@@ -21,7 +21,7 @@ class PatientRepository implements \App\Interfaces\Patients\PatientRepositoryInt
     public function Show($id)
     {
         $Patient = patient::findorfail($id);
-        $invoices = SingleInvoice::where('patient_id', $id)->get();
+        $invoices = Invoice::where('patient_id', $id)->get();
         $receipt_accounts = ReceiptAccount::where('patient_id', $id)->get();
         $Patient_accounts = PatientAccount::where('patient_id', $id)->get(); // orWhereNotNull('Single_invoices_id')
 

@@ -45,13 +45,13 @@ Route::group(
 
     // dashboard Doctor----------
     Route::get('/dashboard/doctor', function (){
-        return view('Dashboard.doctor.dashboard');
+        return view('Dashboard.Dashboard_doctor.dashboard');
     })->middleware(['auth:doctor'])->name('dashboard.doctor');
 
-    // dashboard Doctor----------
-        Route::get('/dashboard/patient', function (){
-            return view('Dashboard.Dashboard_patient.dashboard');
-        })->middleware(['auth:patient'])->name('dashboard.patient');
+    // dashboard Patient----------
+    Route::get('/dashboard/patient', function (){
+        return view('Dashboard.Dashboard_patient.dashboard');
+    })->middleware(['auth:patient'])->name('dashboard.patient');
 
 
 

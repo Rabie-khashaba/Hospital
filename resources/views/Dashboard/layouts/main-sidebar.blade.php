@@ -12,8 +12,9 @@
                 @include('Dashboard.layouts.main-sidebar.admin-main-sidebar');
             @endif
 
-
-
+            @if(auth('doctor')->check())
+                @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
+            @endif
 
 
 

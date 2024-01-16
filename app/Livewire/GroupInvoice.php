@@ -154,6 +154,7 @@ class GroupInvoice extends Component
 
                     $this->InvoiceSaved = true;
                     $this->show_table = true;
+                    $this->rest();
                 }
 
 
@@ -198,7 +199,7 @@ class GroupInvoice extends Component
                     $this->InvoiceUpdated = true;
                     $this->show_table = true;
 
-
+                    $this->rest();
 
                 }else{
 
@@ -234,6 +235,7 @@ class GroupInvoice extends Component
 
                     $this->InvoiceSaved = true;
                     $this->show_table = true;
+                    $this->rest();
 
                 }
             }

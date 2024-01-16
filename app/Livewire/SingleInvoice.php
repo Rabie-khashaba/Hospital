@@ -117,7 +117,7 @@ class SingleInvoice extends Component
                     // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                     $single_invoices->total_with_tax = $single_invoices->price - $single_invoices->discount_value + $single_invoices->tax_value;
                     $single_invoices->type = 1;
-                    // $single_invoices->invoice_status = 1;
+                    $single_invoices->invoice_status = 1;
                     $single_invoices->save();
 
 
@@ -153,7 +153,7 @@ class SingleInvoice extends Component
                     // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                     $single_invoices->total_with_tax = $single_invoices->price - $single_invoices->discount_value + $single_invoices->tax_value;
                     $single_invoices->type = $this->type;
-                    // $single_invoices->invoice_status = 1;
+                    $single_invoices->invoice_status = 1;
                     $single_invoices->save();
 
 
@@ -193,7 +193,7 @@ class SingleInvoice extends Component
                   // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                   $single_invoices->total_with_tax = $single_invoices->price - $single_invoices->discount_value + $single_invoices->tax_value;
                   $single_invoices->type = 2;
-                  // $single_invoices->invoice_status = 1;
+                  $single_invoices->invoice_status = 1;
                   $single_invoices->save();
 
 
@@ -231,7 +231,7 @@ class SingleInvoice extends Component
                   // الاجمالي شامل الضريبة  = السعر - الخصم + قيمة الضريبة
                   $single_invoices->total_with_tax = $single_invoices->price - $single_invoices->discount_value + $single_invoices->tax_value;
                   $single_invoices->type = $this->type;
-                  // $single_invoices->invoice_status = 1;
+                  $single_invoices->invoice_status = 1;
                   $single_invoices->save();
 
                   //save in PatientAccount
