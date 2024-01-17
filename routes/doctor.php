@@ -11,6 +11,8 @@ use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
 use App\Http\Controllers\Doctor_dashboard\DiagnosticController;
 use App\Http\Controllers\Doctor_dashboard\InvoiceController;
+use App\Http\Controllers\Doctor_dashboard\patientDatialsController;
+use App\Http\Controllers\Doctor_dashboard\RaysController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -57,8 +59,16 @@ Route::group(
 
             //Diagnostic
             Route::resource('Diagnostics', DiagnosticController::class);
+
             //add_review
             Route::post('add_review', [DiagnosticController::class,'addReview'])->name('add_review');
+
+            //Rays
+            Route::resource('rays', RaysController::class);
+
+            //patient_details
+
+            Route::get('patient_details/{id}',[patientDatialsController::class , 'index'])->name('patient_details');
 
 
 
