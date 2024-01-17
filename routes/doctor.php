@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
 use App\Http\Controllers\Doctor_dashboard\DiagnosticController;
 use App\Http\Controllers\Doctor_dashboard\InvoiceController;
+use App\Http\Controllers\Doctor_dashboard\LaboratoriesController;
 use App\Http\Controllers\Doctor_dashboard\patientDatialsController;
 use App\Http\Controllers\Doctor_dashboard\RaysController;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,9 @@ Route::group(
             //patient_details
 
             Route::get('patient_details/{id}',[patientDatialsController::class , 'index'])->name('patient_details');
+
+            //Laboratories
+            Route::resource('Laboratories', LaboratoriesController::class);
 
 
 

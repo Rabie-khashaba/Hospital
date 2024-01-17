@@ -6,10 +6,12 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\DoctorController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\Laboratorie_employeeController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\PatientController;
+use App\Http\Controllers\Auth\RayEmployeeController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +35,15 @@ Route::middleware('guest')->group(function () {
 
     //Patient
     Route::post('login/patient', [PatientController::class, 'store'])->name('login.patient');
+
+    //laboratorie_employees
+    Route::post('login/laboratorie_employee', [Laboratorie_employeeController::class, 'store'])->name('login.laboratorie_employee');
+
+    //ray_employee
+    Route::post('login/ray_employee', [RayEmployeeController::class, 'store'])->name('login.ray_employee');
+
+
+
 
 
 
@@ -90,10 +101,26 @@ Route::middleware('auth:doctor')->group(function () {
 
 });
 
+//patients
 Route::middleware('auth:patient')->group(function () {
     //logout
     Route::post('logout/patient', [PatientController::class, 'destroy'])->name('logout.patient');
 
+});
+//laboratorie_employee
+Route::middleware('auth:laboratorie_employee')->group(function () {
+    //logout
+    Route::post('logout/laboratorie_employee', [Laboratorie_employeeController::class, 'destroy'])->name('logout.laboratorie_employee');
 
 });
+
+//ray_employee
+Route::middleware('auth:ray_employee')->group(function () {
+    //logout
+    Route::post('logout/ray_employee', [Laboratorie_employeeController::class, 'destroy'])->name('logout.ray_employee');
+
+});
+
+
+
 

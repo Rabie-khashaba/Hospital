@@ -15,6 +15,6 @@ class DoctorTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('doctors')->delete();
-        Doctor::factory()->count(30)->create();
+        Doctor::factory()->count(10)->create();
     }
 }

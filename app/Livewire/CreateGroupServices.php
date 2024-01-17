@@ -172,6 +172,7 @@ class CreateGroupServices extends Component
             $this->discount_value = 0;
             $this->ServiceSaved = true;
 
+
         }
 
 

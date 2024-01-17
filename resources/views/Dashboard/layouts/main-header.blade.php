@@ -261,13 +261,11 @@
                                                 <form method="POST" action="{{ route('logout.doctor') }}">
                                                     @elseif(auth('patient')->check())
                                                         <form method="POST" action="{{ route('logout.patient') }}">
-{{--                                                    @elseif(auth('doctor')->check())--}}
-{{--                                                        <form method="POST" action="{{ route('logout.doctor') }}">--}}
-{{--                                                            @elseif(auth('ray_employee')->check())--}}
-{{--                                                                <form method="POST" action="{{ route('logout.ray_employee') }}">--}}
-{{--                                                                    @elseif(auth('laboratorie_employee')->check())--}}
-{{--                                                                        <form method="POST"--}}
-{{--                                                                              action="{{ route('logout.laboratorie_employee') }}">--}}
+                                                            @elseif(auth('ray_employee')->check())
+                                                                <form method="POST" action="{{ route('logout.ray_employee') }}">
+                                                                    @elseif(auth('laboratorie_employee')->check())
+                                                                        <form method="POST"
+                                                                              action="{{ route('logout.laboratorie_employee') }}">
                                                                             @else
                                                                                 <form method="POST"
                                                                                       action="{{ route('logout.user') }}">

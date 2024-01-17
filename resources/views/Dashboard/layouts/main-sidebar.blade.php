@@ -16,6 +16,17 @@
                 @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
             @endif
 
+            @if(auth('patient')->check())
+                @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
+            @endif
+
+            @if(auth('laboratorie_employee')->check())
+                @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
+            @endif
+
+            @if(auth('ray_employee')->check())
+                @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
+            @endif
 
 
 		</aside>

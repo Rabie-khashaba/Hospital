@@ -15,16 +15,7 @@ class RaysController extends Controller
     public function __construct(RaysRepositoryInterface $Rays){
         $this->Rays = $Rays;
     }
-    public function index()
-    {
-        //
-    }
 
-
-    public function create()
-    {
-        //
-    }
 
 
     public function store(Request $request)
@@ -32,16 +23,6 @@ class RaysController extends Controller
        return $this->Rays->store($request);
     }
 
-
-    public function show(string $id)
-    {
-        //
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
 
 
     public function update(Request $request , $id)

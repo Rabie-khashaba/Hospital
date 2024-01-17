@@ -92,7 +92,7 @@
                                                @include('Dashboard.Dashboard_doctor.invoice.add_diagnosis')
                                                @include('Dashboard.Dashboard_doctor.invoice.add_review')
                                                @include('Dashboard.Dashboard_doctor.invoice.xray_conversion')
-{{--                                               @include('Dashboard.Dashboard_doctor.invoice.Laboratorie_conversion')--}}
+                                               @include('Dashboard.Dashboard_doctor.invoice.Laboratorie_conversion')
                                            @endforeach
                                             </tbody>
                                         </table>
