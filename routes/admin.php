@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\InsuranceController;
 use App\Http\Controllers\Dashboard\PatientController;
 use App\Http\Controllers\Dashboard\PaymentAccountController;
+use App\Http\Controllers\Dashboard\RayEmployeeController;
 use App\Http\Controllers\Dashboard\ReceiptAccountController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
@@ -83,6 +84,11 @@ Route::group(
 
         //Payment (سند صرف)
         Route::resource('Payment', PaymentAccountController::class);
+
+        //Ray Employee
+        Route::resource('ray_employee', RayEmployeeController::class);
+
+
 
 
 
