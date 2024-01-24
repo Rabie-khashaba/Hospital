@@ -83,8 +83,8 @@
                                                         <th>#</th>
                                                         <th>اسم الخدمه</th>
                                                         <th>اسم الدكتور</th>
-{{--                                                        <th>اسم موظف الاشعة</th>--}}
-{{--                                                        <th>حالة الكشف</th>--}}
+                                                        <th>اسم موظف الاشعة</th>
+                                                        <th>حالة الكشف</th>
                                                         <th>العمليات</th>
                                                     </tr>
                                                     </thead>
@@ -97,7 +97,6 @@
 {{--                                                        <td>{{$patient_ray->employee_id !==null ? $patient_ray->employee->name:'NOEmployee'}}</td>--}}
 {{--                                                         <td>{{$patient_ray->employee->name ?? 'noEmployee'}}</td>--}}
                                                             <td>{{$patient_ray->employee->name}}</td>
-
 
                                                             @if($patient_ray->case == 0)
                                                                 <td class="text-danger">غير مكتملة</td>
@@ -130,8 +129,6 @@
                                         </div>
 
                                         {{-- End Invices Patient --}}
-
-
 
                                         {{-- Start Receipt Patient  --}}
 

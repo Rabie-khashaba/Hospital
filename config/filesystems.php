@@ -46,7 +46,7 @@ return [
 
         'upload_image' => [
             'driver' => 'local',
-            'root' => public_path('Dashboard/img'),
+            'root' => public_path('dashboard/img'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],

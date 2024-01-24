@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\RayEmployee_dashboard\InvoiceRayController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -33,13 +35,10 @@ Route::group(
     // -------------------------------------------------------------
     Route::middleware(['auth:ray_employee'])->group(function (){
 
-        Route::prefix('ray_employee')->group(function () {
+        Route::resource('invoices_ray_employee' ,InvoiceRayController::class);
+        Route::get('completed_invoices', [InvoiceRayController::class,'completed_invoices'])->name('completed_invoices');
+        Route::get('view_rays/{id}', [InvoiceRayController::class,'viewRays'])->name('view_rays');
 
-            //الكشوفات
-
-
-
-        });
     });
 
 

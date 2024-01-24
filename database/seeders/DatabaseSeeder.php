@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             ImageTableSeeder::class,
             AppointmentTableSeeder::class,
             ServiceTableSeeder::class,
+            PatientTableSeeder::class,
+            RayEmployeeTableSeeder::class,
         ]);
     }
 }

@@ -17,15 +17,15 @@
             @endif
 
             @if(auth('patient')->check())
-                @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
+                @include('Dashboard.layouts.main-sidebar.patient-main-sidebar');
             @endif
 
             @if(auth('laboratorie_employee')->check())
-                @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
+                @include('Dashboard.layouts.main-sidebar.laboratorie_employee-main-sidebar');
             @endif
 
             @if(auth('ray_employee')->check())
-                @include('Dashboard.layouts.main-sidebar.doctor-main-sidebar');
+                @include('Dashboard.layouts.main-sidebar.ray_employee-main-sidebar');
             @endif
 
 

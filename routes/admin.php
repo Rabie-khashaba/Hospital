@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\RayEmployeeController;
 use App\Http\Controllers\Dashboard\ReceiptAccountController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SingleServiceController;
+use App\Http\Controllers\LaboratorieEmployee_dashboard\InvoiceController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -91,6 +92,8 @@ Route::group(
 
         Route::resource('laboratorie_employee', LaboratorieEmployeeController::class);
 
+
+        Route::resource('Invoicelaboratorie_employee',InvoiceController::class );
 
 
 

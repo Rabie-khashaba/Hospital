@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\LaboratorieEmployee_dashboard\InvoiceController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -33,13 +35,7 @@ Route::group(
     // -------------------------------------------------------------
     Route::middleware(['auth:laboratorie_employee'])->group(function (){
 
-        Route::prefix('laboratorie_employee')->group(function () {
-
-            //الكشوفات
-
-
-
-        });
+            Route::resource('invoices_laboratorie_employee',InvoiceController::class );
     });
 
 
