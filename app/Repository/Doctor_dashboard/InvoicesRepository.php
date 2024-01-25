@@ -4,6 +4,7 @@ namespace App\Repository\Doctor_dashboard;
 
 use App\Interfaces\Doctor_dashboard\InvoicesRepositoryInterface;
 use App\Models\Invoice;
+use App\Models\X_rays;
 use Illuminate\Support\Facades\Auth;
 
 class InvoicesRepository implements InvoicesRepositoryInterface
@@ -28,7 +29,10 @@ class InvoicesRepository implements InvoicesRepositoryInterface
     }
 
     // View rays
-    public function show($id){}
+    public function show($id){
+        $rays = X_rays::findorfail($id);
+        return view('Dashboard.Dashboard_doctor.invoice.view_rays',compact('rays'));
+    }
 
     // View Laboratories
     public function showLaboratorie($id){}

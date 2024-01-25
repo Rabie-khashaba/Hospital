@@ -154,7 +154,7 @@
                                                 </div>
                                             </div>
 
-                                            form RayEmployee
+{{--                                            form RayEmployee--}}
                                             <div class="panel" id="ray_employee">
                                                 <h2>{{trans('Dashboard/login_trans.ray_employee')}}</h2>
                                                 <form method="POST" action="{{ route('login.ray_employee') }}">

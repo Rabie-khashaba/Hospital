@@ -68,7 +68,6 @@ Route::group(
             Route::resource('rays', RaysController::class);
 
             //patient_details
-
             Route::get('patient_details/{id}',[patientDatialsController::class , 'index'])->name('patient_details');
 
             //Laboratories
