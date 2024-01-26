@@ -36,6 +36,9 @@ Route::group(
     Route::middleware(['auth:laboratorie_employee'])->group(function (){
 
             Route::resource('invoices_laboratorie_employee',InvoiceController::class );
+            Route::get('completed_invoice', [InvoiceController::class,'completed_invoices'])->name('completed_invoice');
+            Route::get('view_laboratorie/{id}',[InvoiceController::class,'view_laboratories'])->name('view_laboratorie');
+
     });
 
 

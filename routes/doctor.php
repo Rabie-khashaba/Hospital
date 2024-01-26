@@ -58,6 +58,9 @@ Route::group(
             //reviewed
             Route::get('review_invoices', [InvoiceController::class,'reviewInvoices'])->name('reviewInvoices');
 
+            //showLaboratorie
+            Route::get('show_Laboratorie/{id}',[InvoiceController::class , 'showLaboratorie'])->name('showLaboratorie');
+
             //Diagnostic
             Route::resource('Diagnostics', DiagnosticController::class);
 
@@ -76,6 +79,12 @@ Route::group(
 
 
 
+
+
+
+            Route::get('/404', function () {
+                return view('Dashboard.404');
+            })->name('404');
 
 
         });

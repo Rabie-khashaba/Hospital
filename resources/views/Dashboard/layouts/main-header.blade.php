@@ -251,9 +251,6 @@
 									</div>
 									<a class="dropdown-item" href=""><i class="bx bx-user-circle"></i>Profile</a>
 									<a class="dropdown-item" href=""><i class="bx bx-cog"></i> Edit Profile</a>
-									<a class="dropdown-item" href=""><i class="bx bxs-inbox"></i>Inbox</a>
-									<a class="dropdown-item" href=""><i class="bx bx-envelope"></i>Messages</a>
-									<a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
 
                                     @if(auth('admin')->check())
                                         <form method="POST" action="{{ route('logout.admin') }}">

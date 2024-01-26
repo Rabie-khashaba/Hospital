@@ -158,7 +158,7 @@
                                                                     </td>
                                                                 @else
                                                                     <td>
-                                                                        <a class="modal-effect btn btn-sm btn-warning"  href="{{route('show.laboratorie',$patient_Laboratorie->id)}}"><i class="fas fa-binoculars"></i></a>
+                                                                        <a class="modal-effect btn btn-sm btn-warning"  href="{{route('showLaboratorie',$patient_Laboratorie->id)}}"><i class="fas fa-binoculars"></i></a>
                                                                     </td>
 
                                                                 @endif

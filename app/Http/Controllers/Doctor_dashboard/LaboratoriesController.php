@@ -23,7 +23,6 @@ class LaboratoriesController extends Controller
     }
 
 
-
     public function update(Request $request , $id)
     {
         return $this->Laboratories->update($request , $id);

@@ -30,19 +30,6 @@ class InvoiceController extends Controller
         return $this->invoices->completedInvoices();
     }
 
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
     public function show($id)
     {
         return $this->invoices->show($id);
@@ -54,19 +41,4 @@ class InvoiceController extends Controller
     }
 
 
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

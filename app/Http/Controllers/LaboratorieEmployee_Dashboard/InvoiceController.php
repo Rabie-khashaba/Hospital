@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\LaboratorieEmployee_Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\LaboratorieEmployee_dashboard\InvoicesRepositoryInterface;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller

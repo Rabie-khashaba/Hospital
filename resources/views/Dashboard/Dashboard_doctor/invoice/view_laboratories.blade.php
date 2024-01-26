@@ -29,9 +29,9 @@
 
             @foreach($laboratories->images as $image)
 
-            <li class="col-sm-6 col-lg-4" data-responsive="{{URL::asset('Dashboard/img/laboratories/'.$image->filename)}}" data-src="{{URL::asset('Dashboard/img/Rays/'.$image->filename)}}">
+            <li class="col-sm-6 col-lg-4" data-responsive="{{URL::asset('dashboard/img/laboratories/'.$image->filename)}}" data-src="{{URL::asset('Dashboard/img/Rays/'.$image->filename)}}">
                 <a href="#">
-                    <img width="50px" height="350px" class="img-responsive" src="{{URL::asset('Dashboard/img/laboratories/'.$image->filename)}}" alt="NoImg">
+                    <img width="50px" height="350px" class="img-responsive" src="{{URL::asset('dashboard/img/laboratories/'.$image->filename)}}" alt="NoImg">
                 </a>
             </li>
             @endforeach
