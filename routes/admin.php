@@ -46,16 +46,6 @@ Route::group(
         return view('Dashboard.admin.dashboard');
     })->middleware(['auth:admin'])->name('dashboard.admin');
 
-    // dashboard Doctor----------
-    Route::get('/dashboard/doctor', function (){
-        return view('Dashboard.Dashboard_doctor.dashboard');
-    })->middleware(['auth:doctor'])->name('dashboard.doctor');
-
-    // dashboard Patient----------
-    Route::get('/dashboard/patient', function (){
-        return view('Dashboard.Dashboard_patient.dashboard');
-    })->middleware(['auth:patient'])->name('dashboard.patient');
-
 
 
     // -------------------------------------------------------------

@@ -67,6 +67,11 @@ class RepositoryServiceProvider extends ServiceProvider
 
 
 
+        //patient
+        $this->app->bind(\App\Interfaces\Patient_dashboard\PatientRepositoryInterface::class , \App\Repository\Patient_dashboard\PatientRepository::class);
+
+
+
     }
 
     /**
