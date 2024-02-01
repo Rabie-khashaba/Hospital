@@ -2,9 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Events\CreateInvoice;
+use App\Events\MyEvent;
 use App\Models\Doctor;
 use App\Models\FundAccount;
 use App\Models\Invoice;
+use App\Models\Notification;
 use App\Models\Patient;
 use App\Models\PatientAccount;
 use App\Models\Section;
@@ -24,6 +27,10 @@ class SingleInvoice extends Component
     public $updateMode = false;
     public $price,$discount_value = 0 ,$patient_id,$doctor_id,$section_name,$type,$Service_id,$single_invoice_id,$catchError;
 
+
+    public function mount(){
+        $this->username = auth()->user()->name;
+    }
 
     public function render()
     {
@@ -167,6 +174,19 @@ class SingleInvoice extends Component
 
                     $this->InvoiceSaved = true;
                     $this->show_table = true;
+
+                    $notification = new Notification();
+                    $notification->user_id = $this->doctor_id;
+                    $patient = Patient::find($this->patient_id);
+                    $notification->message	= 'كشف جديد :' .$patient->name;
+                    $notification->save();
+
+                    $data=[
+                        'patient_id'=>$this->patient_id,
+                        'invoice_id'=>$single_invoices->id,
+                        'doctor_id'=>$this->doctor_id,
+                    ];
+                    event(new CreateInvoice($data));
                 }
 
 

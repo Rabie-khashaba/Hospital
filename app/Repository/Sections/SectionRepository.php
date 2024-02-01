@@ -2,6 +2,7 @@
 
 namespace App\Repository\Sections;
 
+use App\Events\MyEvent;
 use App\Interfaces\Sections\SectionRepositoryInterface;
 use App\Models\Doctor;
 use App\Models\Section;

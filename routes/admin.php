@@ -1,7 +1,9 @@
 <?php
 
+use App\Events\MyEvent;
 use App\Http\Controllers\Dashboard\AmbulanceController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DisplayInvoiceNotification;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\InsuranceController;
 use App\Http\Controllers\Dashboard\LaboratorieEmployeeController;
@@ -84,6 +86,9 @@ Route::group(
 
 
         Route::resource('Invoicelaboratorie_employee',InvoiceController::class );
+
+        //Display Invoice Notification
+        Route::get('Invoice_Notification/{id}',[DisplayInvoiceNotification::class , 'InvoiceDisplay'])->name('Invoice_Notification');
 
 
 

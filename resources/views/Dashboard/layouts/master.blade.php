@@ -7,8 +7,9 @@
 		<meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
 		<meta name="Author" content="Spruko Technologies Private Limited">
 		<meta name="Keywords" content="admin,admin dashboard,admin dashboard template,admin panel template,admin template,admin theme,bootstrap 4 admin template,bootstrap 4 dashboard,bootstrap admin,bootstrap admin dashboard,bootstrap admin panel,bootstrap admin template,bootstrap admin theme,bootstrap dashboard,bootstrap form template,bootstrap panel,bootstrap ui kit,dashboard bootstrap 4,dashboard design,dashboard html,dashboard template,dashboard ui kit,envato templates,flat ui,html,html and css templates,html dashboard template,html5,jquery html,premium,premium quality,sidebar bootstrap 4,template admin bootstrap 4"/>
-		@include('Dashboard.layouts.head')
-	</head>
+
+        @include('Dashboard.layouts.head')
+    </head>
 
 	<body class="main-body app sidebar-mini">
 		<!-- Loader -->
@@ -21,12 +22,13 @@
 		<div class="main-content app-content">
 			@include('Dashboard.layouts.main-header')
 			<!-- container -->
-			<div class="container-fluid">
+            <div class="container-fluid"></div>
 				@yield('page-header')
 				@yield('content')
 				@include('Dashboard.layouts.sidebar')
 				@include('Dashboard.layouts.models')
             	@include('Dashboard.layouts.footer')
 				@include('Dashboard.layouts.footer-scripts')
+
 	</body>
 </html>
