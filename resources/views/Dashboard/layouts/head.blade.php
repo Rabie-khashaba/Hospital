@@ -3,6 +3,7 @@
 
 
 @yield('css')
+@livewireStyles
 
 
 <link href="{{URL::asset('Dashboard/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />

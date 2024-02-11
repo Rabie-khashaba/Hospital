@@ -3,6 +3,8 @@
 
 use App\Http\Controllers\Dashboard_patient\PatientCaontroller;
 use App\Http\Controllers\RayEmployee_dashboard\InvoiceRayController;
+use App\Livewire\Chat\CreateChat;
+use App\Livewire\Chat\Main;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -45,6 +47,10 @@ Route::group(
 
         Route::get('payments', [PatientCaontroller::class,'payments'])->name('payments.patient');
 
+
+        //chat
+        Route::get('list/doctors',Createchat::class)->name('list.doctors');
+        Route::get('chat/doctors',Main::class)->name('chat.doctors');
 
 
 

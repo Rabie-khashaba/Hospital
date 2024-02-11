@@ -54,4 +54,5 @@
 <script src="{{URL::asset('Dashboard/js/table-data.js')}}"></script>
 
 
+@livewireScripts
 
