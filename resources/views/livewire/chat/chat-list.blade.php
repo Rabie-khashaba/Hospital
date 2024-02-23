@@ -4,7 +4,7 @@
         @foreach($conversations as $conversation)
 
             <div class="media new"
-                 wire:click="chatUserSelected({{ $conversation }},'{{ $this->getUsers($conversation,$name='id')}}')">
+                 wire:click="chatUserSelected({{ $conversation }},'{{ $this->getUsers($conversation,$id='id')}}')">
                 <div class="main-img-user online">
                     <img alt="" src="{{URL::asset('dashboard/img/faces/5.jpg')}}"> <span>2</span>
                 </div>

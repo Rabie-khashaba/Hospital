@@ -14,6 +14,10 @@ class ChatList extends Component
     public $conversations ,
         $auth_email,  $receiverUser ,$selectedConversation;
 
+
+    protected $listeners = ['refresh' => '$refresh'];
+
+
     public function mount()
     {
         $this->auth_email = auth()->user()->email;
@@ -55,10 +59,12 @@ class ChatList extends Component
         if (Auth::guard('patient')->check()){
             $this->receiverUser = Doctor::findorfail($receiver_id);
             $this->emitTo('chat.chat-box','load_conversationDoctor',$this->selectedConversation, $this->receiverUser);
+            $this->emitTo('chat.send-message', 'updateMessage', $this->selectedConversation, $this->receiverUser);
 
         }else{
             $this->receiverUser = Patient::findorfail($receiver_id);
             $this->emitTo('chat.chat-box','load_conversationPatient',$this->selectedConversation, $this->receiverUser);
+            $this->emitTo('chat.send-message', 'updateMessage2', $this->selectedConversation, $this->receiverUser);
 
         }
 

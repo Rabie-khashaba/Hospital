@@ -1,5 +1,4 @@
-<div>
-
+<div  >
     @if($selected_conversation)
         <div class="main-content-body main-content-body-chat">
             <div class="main-chat-header">
@@ -21,23 +20,12 @@
                                     {{$message->body}}
                                 </div>
                                 <div>
-                                    <span>9:48 am</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
+                                    <span>{{$message->created_at->diffForHumans()}}</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
 
-                    <div class="media">
-                        <div class="main-img-user online"><img alt="" src="{{URL::asset('dashboard/img/faces/6.jpg')}}"></div>
-                        <div class="media-body">
-                            <div class="main-msg-wrapper left">
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                            </div>
-                            <div>
-                                <span>9:32 am</span> <a href=""><i class="icon ion-android-more-horizontal"></i></a>
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div>
