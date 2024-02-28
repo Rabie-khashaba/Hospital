@@ -27,7 +27,6 @@ class ChatList extends Component
 
     public function render()
     {
-
         $this->conversations = Conversation::where('sender_email',$this->auth_email)
             ->orwhere('receiver_email',$this->auth_email)
             ->orderBy('created_at','DESC')

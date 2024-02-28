@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Chat;
 
+use App\Events\SendMessage2;
 use App\Models\Conversation;
 use App\Models\Doctor;
 use App\Models\Message;
@@ -13,21 +14,21 @@ class SendMessage extends Component
 {
 
 
-    public $body , $createMessage  ,$auth_email , $auth_id ,$selected_conversation , $receviverUser;
+    public $body , $createMessage  ,$auth_email , $sender ,$selected_conversation , $receviverUser;
 
     public function mount()
     {
         if (Auth::guard('patient')->check()) {
             $this->auth_email = Auth::guard('patient')->user()->email;
-            $this->auth_id = Auth::guard('patient')->user()->id;
+            $this->sender = Auth::guard('patient')->user();
         } else {
             $this->auth_email = Auth::guard('doctor')->user()->email;
-            $this->auth_id = Auth::guard('doctor')->user()->id;
+            $this->sender = Auth::guard('doctor')->user();
         }
 
     }
 
-    public $listeners = ['updateMessage' , 'updateMessage2'];
+    public $listeners = ['updateMessage' , 'updateMessage2','dispatchSendMessage'];
 
 
     public function render()
@@ -67,8 +68,33 @@ class SendMessage extends Component
 
         $this->emitTo('chat.chat-box','pushMessage',$this->createMessage->id);
         $this->emitTo('chat.chat-list','refresh');
+        $this->emitSelf('dispatchSendMessage');
+
+    }
 
 
+    public function dispatchSendMessage(){
+
+       // dd($this->sender);
+       if(Auth::guard('patient')->check()){
+
+           broadcast(new \App\Events\SendMessage(
+               $this->sender,
+               $this->selected_conversation,
+               $this->createMessage,
+               $this->receviverUser
+           ));
+
+       }else{
+
+           broadcast(new SendMessage2(
+               $this->sender,
+               $this->selected_conversation,
+               $this->createMessage,
+               $this->receviverUser
+           ));
+
+       }
     }
 
 }

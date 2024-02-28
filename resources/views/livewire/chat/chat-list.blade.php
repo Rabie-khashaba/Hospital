@@ -11,10 +11,10 @@
                 <div class="media-body">
                     <div class="media-contact-name">
                         <span>{{ $this->getUsers($conversation,$name='name')}}</span> {{--get name of receiver--}}
-                        <span>{{$conversation->messages->last()->created_at->shortAbsoluteDiffForHumans()}}</span>
+                        <span>{{ $conversation->messages->last() ? $conversation->messages->last()->created_at->diffForHumans() : "" }}</span>
 
                     </div>
-                    <p>{{$conversation->messages->last()->body}}</p>
+                    <p>{{$conversation->messages->last()->body ?? "No Message"}}</p>
                 </div>
             </div>
 
