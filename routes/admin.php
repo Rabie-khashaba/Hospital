@@ -53,6 +53,7 @@ Route::group(
     // -------------------------------------------------------------
     Route::middleware(['auth:admin'])->group(function (){
 
+
         //section---------
         Route::resource('sections', SectionController::class);
 
@@ -107,10 +108,12 @@ Route::group(
         Route::view('group_Print_single_invoices','livewire.Group_Invoices.print')->name('group_Print_single_invoices');
 
 
+
     });
 
 
     require __DIR__.'/auth.php';
+
 
 });
 
