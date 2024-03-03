@@ -2,6 +2,7 @@
 
 use App\Events\MyEvent;
 use App\Http\Controllers\Dashboard\AmbulanceController;
+use App\Http\Controllers\Dashboard\Appointment\AppointmentController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DisplayInvoiceNotification;
 use App\Http\Controllers\Dashboard\DoctorController;
@@ -107,6 +108,13 @@ Route::group(
         Route::view('GroupServiceInvoice','livewire.Group_Invoices.index')->name('GroupServiceInvoice');
         Route::view('group_Print_single_invoices','livewire.Group_Invoices.print')->name('group_Print_single_invoices');
 
+
+        //Appointments
+        Route::get('appointments', [AppointmentController::class , 'index'])->name('appointments.index');
+        Route::put('appointments/approval/{id}', [AppointmentController::class , 'approval'])->name('appointments.approval');
+        Route::get('appointments/approval', [AppointmentController::class , 'index2'])->name('appointments.index2');
+        Route::PUT('appointments/finished/{id}', [AppointmentController::class , 'finished'])->name('appointments.finished');
+        Route::get('appointments/finished', [AppointmentController::class , 'index3'])->name('appointments.index3');
 
 
     });
