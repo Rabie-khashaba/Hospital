@@ -11,7 +11,7 @@ class Appointment extends Model
     use HasFactory;
     use Translatable;
     public $translatedAttributes = ['name'];
-    public $fillable= ['name','email','phone','notes','doctor_id','section_id','type','appointment'];
+    public $fillable= ['email','phone','notes','doctor_id','section_id','type','appointment','name'];
 
     public function doctor()
     {
