@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Events\CreateInvoice;
 use App\Events\MyEvent;
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\FundAccount;
 use App\Models\Invoice;
@@ -175,6 +176,19 @@ class SingleInvoice extends Component
                     $this->InvoiceSaved = true;
                     $this->show_table = true;
 
+                    // chek appointment
+                    $patient = Patient::find($this->patient_id);
+                    $appointment_info = Appointment::where('doctor_id', $this->doctor_id)->where('email', $patient->email)->where('type','مؤكد')->first();
+                   // dd($appointment_info);
+
+                    if ($appointment_info) {
+                      //  $appointment = Appointment::find($appointment_info->id);
+                        $appointment_info->update([
+                            'type' => 'منتهي'
+                        ]);
+                    }
+
+                    // send notification
                     $notification = new Notification();
                     $notification->user_id = $this->doctor_id;
                     $patient = Patient::find($this->patient_id);
@@ -261,6 +275,17 @@ class SingleInvoice extends Component
                   $patientAccount->credit =0.00;
                   $patientAccount->save();
 
+
+                  // chek appointment
+                  $patient = Patient::find($this->patient_id);
+                  $appointment_info = Appointment::where('doctor_id', $this->doctor_id)->where('email', $patient->email)->where('type','مؤكد')->first();
+
+                  if ($appointment_info) {
+                      //  $appointment = Appointment::find($appointment_info->id);
+                      $appointment_info->update([
+                          'type' => 'منتهي'
+                      ]);
+                  }
 
 
                   $this->InvoiceSaved = true;

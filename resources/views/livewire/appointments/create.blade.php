@@ -7,7 +7,16 @@
     @endif
 
 
-    <form wire:submit.prevent="store">
+    @if($message2 === true)
+        <script>
+            alert('تم اكتمال الحجز اليوم و يمكنك الحجز في يوم اخر')
+            location.reload()
+        </script>
+    @endif
+
+
+
+        <form wire:submit.prevent="store">
         <div class="row clearfix">
             <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                 <input type="text" name="username" wire:model="name" placeholder="اسمك" required="">
@@ -43,6 +52,12 @@
             <div class="col-lg-12 col-md-6 col-sm-12 form-group">
                 <input type="tel" name="phone" wire:model="phone" placeholder="رقم الهاتف" required="">
                 <span class="icon fas fa-phone"></span>
+            </div>
+
+            <div class="col-lg-12 col-md-6 col-sm-12 form-group">
+                <label for="exampleFormControlSelect1">تاريخ الموعد</label>
+                <input type="date" name="appointment_patient" wire:model="appointment_patient" required
+                       class="form-control">
             </div>
 
 

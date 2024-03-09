@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('type',['غير مؤكد','مؤكد','منتهي'])->default('غير مؤكد');
             $table->dateTime('appointment')->nullable();
             $table->text('notes')->nullable();
+            $table->date('appointment_patient')->nullable();
             $table->timestamps();
         });
     }

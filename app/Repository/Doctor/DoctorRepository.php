@@ -46,6 +46,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor->email = $request->email;
             $doctor->password = Hash::make($request->password);
             $doctor->phone = $request->phone;
+            $doctor->number_of_statements = $request->number_of_statements;
             $doctor->section_id = $request->section_id;
             $doctor->status = 1;
 
@@ -82,6 +83,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor->email = $request->email;
             $doctor->password = Hash::make("11111111");
             $doctor->phone = $request->phone;
+            $doctor->number_of_statements = $request->number_of_statements;
             $doctor->section_id = $request->section_id;
             $doctor->save();
 

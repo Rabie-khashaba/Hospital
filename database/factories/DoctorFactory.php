@@ -29,6 +29,7 @@ class DoctorFactory extends Factory
             'section_id' => Section::all()->random()->id,
             'phone' => $this->faker->phoneNumber,
             //'price' => $this->faker->randomElement([100,200,300,400,500]),
+            'number_of_statements'=>5,
 
         ];
     }

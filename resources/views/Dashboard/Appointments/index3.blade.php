@@ -39,6 +39,7 @@
                                 <th>الدكتور</th>
                                 <th>تاريخ الموعد</th>
                                 <th>الهاتف</th>
+                                <th>الحاله</th>
                                 <th>العمليات</th>
                             </tr>
                             </thead>
@@ -52,17 +53,17 @@
                                     <td>{{$appointment->doctor->name}}</td>
                                     <td>{{$appointment->appointment}}</td>
                                     <td>{{$appointment->phone}}</td>
+                                    <td class="btn btn-danger">{{$appointment->type}}</td>
                                     <td>
                                         <button class="btn btn-sm btn-success" data-toggle="modal"
                                                 data-target="#approval{{$appointment->id}}"><i class="fas fa-check"></i>
                                         </button>
                                         <button class="btn btn-sm btn-danger" data-toggle="modal"
-                                                data-target="#Deleted{{$appointment->id}}"><i class="fas fa-remove-format"></i>
+                                                data-target="#Refusal{{$appointment->id}}"><i class="fas fa-remove-format"></i>
                                         </button>
                                     </td>
                                 </tr>
                                  @include('Dashboard.appointments.approval')
-                                 @include('Dashboard.appointments.delete')
                             @endforeach
                             </tbody>
                         </table>

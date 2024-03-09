@@ -63,18 +63,17 @@ class AppointmentController extends Controller
 
 
 
-    public function finished($id){
+    public function destroy($id){
         $appointment =  Appointment::find($id);
-
-        $appointment->update([
-            'type'=>'منتهي',
-        ]);
+        $appointment->delete();
 
         session()->flash('delete');
         return back();
 
-
     }
+
+
+
 
 
 }
