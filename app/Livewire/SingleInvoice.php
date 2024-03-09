@@ -189,8 +189,6 @@ class SingleInvoice extends Component
                     event(new CreateInvoice($data));
                 }
 
-
-
             }
             // اجل
             else{

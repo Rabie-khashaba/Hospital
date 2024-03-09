@@ -43,3 +43,16 @@
 
     </script>
 @endif
+
+
+@if (session()->has('appointmentConfirm'))
+    <script>
+        window.onload = function() {
+            notif({
+                msg: "{{ trans('Dashboard/messages.appointmentConfirm') }}",
+                type: "success"
+            });
+        }
+
+    </script>
+@endif

@@ -62,7 +62,7 @@
                                     </td>
                                 </tr>
                                  @include('Dashboard.appointments.approval')
-                                 @include('Dashboard.appointments.FinishedAppoiment')
+
                             @endforeach
                             </tbody>
                         </table>

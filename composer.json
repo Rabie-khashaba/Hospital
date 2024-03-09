@@ -13,8 +13,13 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "2.12",
+        "mailgun/mailgun-php": "^4.1",
         "mcamara/laravel-localization": "^1.8",
-        "pusher/pusher-php-server": "^7.2"
+        "pusher/pusher-php-server": "^7.2",
+        "symfony/http-client": "^6.4",
+        "symfony/mailer": "^6.4",
+        "symfony/mailgun-mailer": "^6.4",
+        "twilio/sdk": "^7.16"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
